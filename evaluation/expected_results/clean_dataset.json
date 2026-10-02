@@ -1,0 +1,8 @@
+{
+  "dataset": "clean_dataset.csv",
+  "format": "CSV",
+  "data_category": "structured",
+  "expected_issues": ["date_as_string"],
+  "expected_quality_score": 95,
+  "description": "Clean dataset with date_as_string issue (dates stored as strings, which is expected for CSV)"
+}

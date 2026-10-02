@@ -1,0 +1,972 @@
+[
+  {
+    "dataset": "clean_dataset.csv",
+    "source_file": "evaluation/structured/clean_dataset.csv",
+    "format": "CSV",
+    "quality_score": 95.0,
+    "total_issues": 1,
+    "performance": {
+      "load_time": 0.007,
+      "quality_time": 0.011,
+      "metadata_time": 0.015,
+      "embedding_time": 8.377,
+      "vector_time": 0.009,
+      "rag_time": 0.0,
+      "total_time": 8.418
+    },
+    "rag_results": [
+      {
+        "question": "Why does this dataset have a low quality score?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.0491249561309814
+          ]
+        }
+      },
+      {
+        "question": "What are the major quality problems?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.6497399806976318
+          ]
+        }
+      },
+      {
+        "question": "Which columns contain missing values?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.3358888626098633
+          ]
+        }
+      },
+      {
+        "question": "What duplicate problems were detected?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.7720341682434082
+          ]
+        }
+      },
+      {
+        "question": "What outliers were detected?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.502510905265808
+          ]
+        }
+      },
+      {
+        "question": "What corrective actions are recommended?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            2.0217041969299316
+          ]
+        }
+      },
+      {
+        "question": "What is the overall quality score?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.4941294193267822
+          ]
+        }
+      },
+      {
+        "question": "Which issues have the highest severity?",
+        "explanation": "Dataset evaluation/structured/clean_dataset.csv has a quality score of 95/100.\nThe data quality is excellent with minimal issues.\n\nSpecific issues detected:\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Excellent - Data is ready for use with minimal concerns",
+        "used_llm": false,
+        "query_time": 0.01,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.6792685985565186
+          ]
+        }
+      }
+    ],
+    "evaluation_timestamp": "2026-09-23T16:05:49.986738"
+  },
+  {
+    "dataset": "missing_values.csv",
+    "source_file": "evaluation/structured/missing_values.csv",
+    "format": "CSV",
+    "quality_score": 75.0,
+    "total_issues": 2,
+    "performance": {
+      "load_time": 0.006,
+      "quality_time": 0.015,
+      "metadata_time": 0.003,
+      "embedding_time": 6.505,
+      "vector_time": 0.01,
+      "rag_time": 0.0,
+      "total_time": 6.538
+    },
+    "rag_results": [
+      {
+        "question": "Why does this dataset have a low quality score?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.1171677112579346
+          ]
+        }
+      },
+      {
+        "question": "What are the major quality problems?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5882772207260132
+          ]
+        }
+      },
+      {
+        "question": "Which columns contain missing values?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.0272693634033203
+          ]
+        }
+      },
+      {
+        "question": "What duplicate problems were detected?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.7215741872787476
+          ]
+        }
+      },
+      {
+        "question": "What outliers were detected?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.015,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.489614486694336
+          ]
+        }
+      },
+      {
+        "question": "What corrective actions are recommended?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            2.0282022953033447
+          ]
+        }
+      },
+      {
+        "question": "What is the overall quality score?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.011,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5211601257324219
+          ]
+        }
+      },
+      {
+        "question": "Which issues have the highest severity?",
+        "explanation": "Dataset evaluation/structured/missing_values.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.641998052597046
+          ]
+        }
+      }
+    ],
+    "evaluation_timestamp": "2026-09-23T16:05:56.624278"
+  },
+  {
+    "dataset": "duplicate_records.csv",
+    "source_file": "evaluation/structured/duplicate_records.csv",
+    "format": "CSV",
+    "quality_score": 85.0,
+    "total_issues": 2,
+    "performance": {
+      "load_time": 0.005,
+      "quality_time": 0.011,
+      "metadata_time": 0.004,
+      "embedding_time": 8.275,
+      "vector_time": 0.009,
+      "rag_time": 0.0,
+      "total_time": 8.304
+    },
+    "rag_results": [
+      {
+        "question": "Why does this dataset have a low quality score?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.1183037757873535
+          ]
+        }
+      },
+      {
+        "question": "What are the major quality problems?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.016,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5545612573623657
+          ]
+        }
+      },
+      {
+        "question": "Which columns contain missing values?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.299847960472107
+          ]
+        }
+      },
+      {
+        "question": "What duplicate problems were detected?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.4046952724456787
+          ]
+        }
+      },
+      {
+        "question": "What outliers were detected?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5107693672180176
+          ]
+        }
+      },
+      {
+        "question": "What corrective actions are recommended?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.9687814712524414
+          ]
+        }
+      },
+      {
+        "question": "What is the overall quality score?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.4252650737762451
+          ]
+        }
+      },
+      {
+        "question": "Which issues have the highest severity?",
+        "explanation": "Dataset evaluation/structured/duplicate_records.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- duplicate_rows: Found 1 duplicate rows (10.0%)\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Review and remove duplicate records",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.6011221408843994
+          ]
+        }
+      }
+    ],
+    "evaluation_timestamp": "2026-09-23T16:06:05.032338"
+  },
+  {
+    "dataset": "outlier_dataset.csv",
+    "source_file": "evaluation/structured/outlier_dataset.csv",
+    "format": "CSV",
+    "quality_score": 75.0,
+    "total_issues": 3,
+    "performance": {
+      "load_time": 0.007,
+      "quality_time": 0.011,
+      "metadata_time": 0.003,
+      "embedding_time": 6.71,
+      "vector_time": 0.011,
+      "rag_time": 0.0,
+      "total_time": 6.741
+    },
+    "rag_results": [
+      {
+        "question": "Why does this dataset have a low quality score?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.021385669708252
+          ]
+        }
+      },
+      {
+        "question": "What are the major quality problems?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.01,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5029895305633545
+          ]
+        }
+      },
+      {
+        "question": "Which columns contain missing values?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.01,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.3546537160873413
+          ]
+        }
+      },
+      {
+        "question": "What duplicate problems were detected?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.8132166862487793
+          ]
+        }
+      },
+      {
+        "question": "What outliers were detected?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.2215598821640015
+          ]
+        }
+      },
+      {
+        "question": "What corrective actions are recommended?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.9905061721801758
+          ]
+        }
+      },
+      {
+        "question": "What is the overall quality score?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.011,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.3109991550445557
+          ]
+        }
+      },
+      {
+        "question": "Which issues have the highest severity?",
+        "explanation": "Dataset evaluation/structured/outlier_dataset.csv has a quality score of 75/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- outliers: Column 'age' has 1 outliers (10.0%) using IQR method\n- outliers: Column 'salary' has 1 outliers (10.0%) using IQR method\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Validate data types and correct invalid values",
+          "Analyze outliers and determine if they are valid or errors",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5161445140838623
+          ]
+        }
+      }
+    ],
+    "evaluation_timestamp": "2026-09-23T16:06:11.871822"
+  },
+  {
+    "dataset": "type_inconsistency.csv",
+    "source_file": "evaluation/structured/type_inconsistency.csv",
+    "format": "CSV",
+    "quality_score": 85.0,
+    "total_issues": 2,
+    "performance": {
+      "load_time": 0.005,
+      "quality_time": 0.012,
+      "metadata_time": 0.003,
+      "embedding_time": 6.861,
+      "vector_time": 0.008,
+      "rag_time": 0.0,
+      "total_time": 6.889
+    },
+    "rag_results": [
+      {
+        "question": "Why does this dataset have a low quality score?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.0676450729370117
+          ]
+        }
+      },
+      {
+        "question": "What are the major quality problems?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.01,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.4838731288909912
+          ]
+        }
+      },
+      {
+        "question": "Which columns contain missing values?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.235446572303772
+          ]
+        }
+      },
+      {
+        "question": "What duplicate problems were detected?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.6908544301986694
+          ]
+        }
+      },
+      {
+        "question": "What outliers were detected?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.4232820272445679
+          ]
+        }
+      },
+      {
+        "question": "What corrective actions are recommended?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.954343557357788
+          ]
+        }
+      },
+      {
+        "question": "What is the overall quality score?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.422821283340454
+          ]
+        }
+      },
+      {
+        "question": "Which issues have the highest severity?",
+        "explanation": "Dataset evaluation/structured/type_inconsistency.csv has a quality score of 85/100.\nThe data quality is good with some minor issues that should be addressed.\n\nSpecific issues detected:\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Remove duplicate records and standardize data formats",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Good - Data is suitable for most use cases with minor cleanup",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5236713886260986
+          ]
+        }
+      }
+    ],
+    "evaluation_timestamp": "2026-09-23T16:06:18.860472"
+  },
+  {
+    "dataset": "mixed_quality_dataset.csv",
+    "source_file": "evaluation/structured/mixed_quality_dataset.csv",
+    "format": "CSV",
+    "quality_score": 60.0,
+    "total_issues": 4,
+    "performance": {
+      "load_time": 0.006,
+      "quality_time": 0.011,
+      "metadata_time": 0.003,
+      "embedding_time": 7.192,
+      "vector_time": 0.01,
+      "rag_time": 0.0,
+      "total_time": 7.221
+    },
+    "rag_results": [
+      {
+        "question": "Why does this dataset have a low quality score?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            0.9273531436920166
+          ]
+        }
+      },
+      {
+        "question": "What are the major quality problems?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.011,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.3633651733398438
+          ]
+        }
+      },
+      {
+        "question": "Which columns contain missing values?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.1792210340499878
+          ]
+        }
+      },
+      {
+        "question": "What duplicate problems were detected?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.013,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.6895623207092285
+          ]
+        }
+      },
+      {
+        "question": "What outliers were detected?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.015,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.479323148727417
+          ]
+        }
+      },
+      {
+        "question": "What corrective actions are recommended?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.014,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.9445810317993164
+          ]
+        }
+      },
+      {
+        "question": "What is the overall quality score?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.213374137878418
+          ]
+        }
+      },
+      {
+        "question": "Which issues have the highest severity?",
+        "explanation": "Dataset evaluation/structured/mixed_quality_dataset.csv has a quality score of 60/100.\nThe data quality is fair and requires attention for several issues.\n\nSpecific issues detected:\n- missing_values: Column 'salary' has 2 missing values (20.0%)\n- partial_duplicates: Found 1 rows with duplicate values in column 'employee_id'\n- inconsistent_type: Column 'age' appears to contain numeric data stored as strings\n- date_as_string: Column 'hire_date' appears to contain date data stored as strings",
+        "recommendations": [
+          "Address missing values by imputation or data collection",
+          "Remove duplicate records and standardize data formats",
+          "Implement data quality monitoring and validation processes",
+          "Investigate and address missing value patterns",
+          "Convert date strings to proper datetime format"
+        ],
+        "quality_assessment": "Fair - Data requires quality improvements before production use",
+        "used_llm": false,
+        "query_time": 0.012,
+        "retrieved_context": {
+          "document_count": 1,
+          "similarities": [
+            1.5025246143341064
+          ]
+        }
+      }
+    ],
+    "evaluation_timestamp": "2026-09-23T16:06:26.185509"
+  }
+]

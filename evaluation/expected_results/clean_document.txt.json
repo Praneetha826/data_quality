@@ -1,0 +1,8 @@
+{
+  "dataset": "clean_document.txt",
+  "format": "TXT",
+  "data_category": "unstructured",
+  "expected_issues": [],
+  "expected_quality_score": 100,
+  "description": "Clean text document with no quality issues"
+}

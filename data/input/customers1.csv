@@ -1,0 +1,42 @@
+Customer ID,Name,Email,Phone,City,Registration Date,Customer Status
+CUST46947,Emily Wilson,nicole.thomas@example.com,+1-266-692-8048,San Francisco,2024-11-22,Active
+CUST92259,Joseph Smith,david.jones@example.com,+1-928-968-6581,Boston,2020-07-14,Pending
+CUST47345,Richard Johnson,thomas.brown@example.com,+1-990-796-8538,Denver,2020-03-25,Active
+CUST45621,James Hernandez,richard.miller@example.com,+1-507-401-8458,Seattle,2024-10-23,Active
+CUST83084,Robert Garcia,elizabeth.anderson@example.com,+1-930-850-5775,Los Angeles,2022-07-02,Active
+CUST36583,James Wilson,invalid-email,+1-364-880-2405,Denver,2022-05-17,Active
+CUST37900,Michael Wilson,thomas.williams@example.com,+1-581-655-9150,San Francisco,2021-04-13,Active
+CUST85827,Jennifer Lopez,jessica.brown@example.com,+1-400-210-7322,San Francisco,2024-08-10,Active
+CUST22443,James Wilson,nicole.hernandez@example.com,+1-842-830-7476,San Francisco,2022-05-19,Pending
+CUST44299,David Martinez,jennifer.lopez@example.com,+1-749-167-8380,Boston,2023-08-29,Pending
+CUST36605,Stephanie Jones,,+1-852-154-2986,San Francisco,2023-10-27,Active
+CUST75271,Michael Brown,melissa.lopez@example.com,+1-734-267-1644,Austin,2022-04-08,Inactive
+CUST77394,Nicole Garcia,james.thomas@example.com,+1-663-459-1578,New York,2023-04-29,Active
+CUST14363,Joseph Martinez,james.jackson@example.com,+1-299-233-7446,Seattle,2023-11-02,Pending
+CUST54076,Robert Miller,richard.garcia@example.com,+1-466-439-7680,Boston,2021-11-21,Inactive
+CUST80352,Nicole Garcia,melissa.martin@example.com,+1-752-178-1691,Chicago,2021-02-08,Premium
+CUST43719,William Miller,thomas.brown@example.com,+1-988-325-6797,New York,2024-05-23,Inactive
+CUST66557,Robert Taylor,joseph.taylor@example.com,+1-770-883-2087,Boston,2021-12-04,Inactive
+CUST97094,Joseph Martin,michael.moore@example.com,+1-805-716-8514,Seattle,2022-10-08,Active
+CUST64998,Emily Garcia,ashley.anderson@example.com,+1-203-795-2268,Seattle,2024-05-08,Inactive
+CUST81211,Robert Anderson,joseph.williams@example.com,+1-443-402-1147,,2023-04-13,Active
+CUST14147,Sarah Taylor,joseph.garcia@example.com,+1-744-496-6029,Austin,2021-02-16,Active
+CUST72931,Sarah Lopez,richard.garcia@example.com,+1-919-689-4894,Chicago,2022-08-05,Active
+CUST23675,Stephanie Davis,elizabeth.anderson@example.com,+1-492-715-1133,Denver,2024-04-13,Inactive
+CUST98264,Ashley Moore,james.johnson@example.com,+1-847-991-6911,Austin,2023-12-11,Pending
+CUST78733,Emily Williams,thomas.garcia@example.com,+1-704-811-6574,Austin,,Active
+CUST18726,Charles Rodriguez,elizabeth.williams@example.com,+1-842-437-2580,Los Angeles,2023-05-03,Active
+CUST68974,Thomas Johnson,michael.moore@example.com,+1-424-272-1860,Boston,2020-06-19,Inactive
+CUST40336,Richard Gonzalez,robert.johnson@example.com,+1-565-353-8775,Seattle,2023-01-21,Inactive
+CUST98098,Emily Gonzalez,john.brown@example.com,+1-633-327-4195,Austin,2021-03-11,Pending
+CUST89958,David Williams,jennifer.moore@example.com,+1-628-755-3149,New York,2023-03-10,active
+CUST36811,James Wilson,john.jones@example.com,+1-592-912-4120,Boston,2024-05-07,Inactive
+CUST42020,William Smith,robert.anderson@example.com,+1-276-693-8817,Los Angeles,2024-03-05,Active
+CUST53712,Nicole Lopez,james.wilson@example.com,+1-709-250-6660,Boston,2020-09-25,Active
+CUST95838,Sarah Anderson,richard.miller@example.com,+1-705-703-1501,Boston,2023-02-08,Pending
+CUST60472,Robert Williams,sarah.williams@example.com,+1-780-223-5867,Los Angeles,2024-04-18,Inactive
+CUST13129,Melissa Williams,jessica.rodriguez@example.com,+1-292-189-6518,Boston,2024-08-17,Active
+CUST21306,Emily Anderson,james.jones@example.com,+1-955-846-4333,Chicago,2020-05-28,Active
+CUST14297,Ashley Thomas,michael.johnson@example.com,+1-728-288-9449,San Francisco,2021-08-29,Active
+CUST51746,Michael Rodriguez,david.thomas@example.com,+1-427-955-2831,Chicago,2020-06-04,Active
+CUST46947,Emily Wilson,nicole.thomas@example.com,+1-266-692-8048,San Francisco,2024-11-22,Active

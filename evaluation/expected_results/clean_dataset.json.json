@@ -1,0 +1,8 @@
+{
+  "dataset": "clean_dataset.json",
+  "format": "JSON",
+  "data_category": "semi-structured",
+  "expected_issues": ["date_as_string"],
+  "expected_quality_score": 95,
+  "description": "Clean JSON dataset with date_as_string issue"
+}

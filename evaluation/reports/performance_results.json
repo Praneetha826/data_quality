@@ -1,0 +1,50 @@
+[
+  {
+    "dataset": "clean_dataset.csv",
+    "quality_score": 95.0,
+    "timings": {
+      "file_loading": 0.0084,
+      "quality_assessment": 0.0146,
+      "metadata_generation": 0.0035,
+      "embedding_generation": 8.4052,
+      "faiss_indexing": 0.0115,
+      "faiss_retrieval": 0.013,
+      "rag_setup": 0.0,
+      "rag_query": 0.0123,
+      "total_pipeline": 8.4684
+    },
+    "measurement_timestamp": "2026-09-23T16:17:39.149510"
+  },
+  {
+    "dataset": "missing_values.csv",
+    "quality_score": 75.0,
+    "timings": {
+      "file_loading": 0.0081,
+      "quality_assessment": 0.0117,
+      "metadata_generation": 0.004,
+      "embedding_generation": 7.4427,
+      "faiss_indexing": 0.0091,
+      "faiss_retrieval": 0.011,
+      "rag_setup": 0.0,
+      "rag_query": 0.0103,
+      "total_pipeline": 7.4969
+    },
+    "measurement_timestamp": "2026-09-23T16:17:46.647402"
+  },
+  {
+    "dataset": "mixed_quality_dataset.csv",
+    "quality_score": 60.0,
+    "timings": {
+      "file_loading": 0.005,
+      "quality_assessment": 0.0111,
+      "metadata_generation": 0.002,
+      "embedding_generation": 7.7956,
+      "faiss_indexing": 0.008,
+      "faiss_retrieval": 0.012,
+      "rag_setup": 0.0,
+      "rag_query": 0.0126,
+      "total_pipeline": 7.8463
+    },
+    "measurement_timestamp": "2026-09-23T16:17:54.494336"
+  }
+]

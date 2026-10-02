@@ -1,0 +1,29 @@
+[
+  {
+    "employee_id": 101,
+    "name": "John Smith",
+    "age": 28,
+    "department": "Engineering",
+    "salary": 75000,
+    "email": "john.smith@example.com",
+    "hire_date": "2020-01-15"
+  },
+  {
+    "employee_id": 102,
+    "name": "Jane Doe",
+    "age": 32,
+    "department": "Marketing",
+    "salary": null,
+    "email": "jane.doe@example.com",
+    "hire_date": "2019-03-20"
+  },
+  {
+    "employee_id": 103,
+    "name": "Bob Johnson",
+    "age": 95,
+    "department": "Sales",
+    "salary": 72000,
+    "email": "bob.johnson@example.com",
+    "hire_date": "2021-05-10"
+  }
+]

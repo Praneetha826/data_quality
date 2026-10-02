@@ -1,0 +1,346 @@
+[
+  {
+    "dataset": "clean_dataset.csv",
+    "format": "CSV",
+    "data_category": "structured",
+    "expected_issues": [
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "date_as_string"
+    ],
+    "quality_score": 95.0,
+    "completeness_score": 100.0,
+    "consistency_score": 100.0,
+    "validity_score": 100.0,
+    "expected_quality_score": 95,
+    "description": "Clean dataset with date_as_string issue (dates stored as strings, which is expected for CSV)",
+    "performance": {
+      "load_time": 0.006,
+      "quality_time": 0.017
+    },
+    "detection_metrics": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.743593"
+  },
+  {
+    "dataset": "missing_values.csv",
+    "format": "CSV",
+    "data_category": "structured",
+    "expected_issues": [
+      "missing_values",
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "missing_values",
+      "date_as_string"
+    ],
+    "quality_score": 75.0,
+    "completeness_score": 90.0,
+    "consistency_score": 100.0,
+    "validity_score": 100.0,
+    "expected_quality_score": "< 100",
+    "description": "Dataset with intentionally missing salary and email values and date_as_string",
+    "performance": {
+      "load_time": 0.005,
+      "quality_time": 0.01
+    },
+    "detection_metrics": {
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.758336"
+  },
+  {
+    "dataset": "duplicate_records.csv",
+    "format": "CSV",
+    "data_category": "structured",
+    "expected_issues": [
+      "duplicate_rows",
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "duplicate_rows",
+      "date_as_string"
+    ],
+    "quality_score": 85.0,
+    "completeness_score": 100.0,
+    "consistency_score": 85.0,
+    "validity_score": 100.0,
+    "expected_quality_score": "< 100",
+    "description": "Dataset with intentionally duplicated record (row 2 and row 6 are identical) and date_as_string",
+    "performance": {
+      "load_time": 0.004,
+      "quality_time": 0.015
+    },
+    "detection_metrics": {
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.777094"
+  },
+  {
+    "dataset": "outlier_dataset.csv",
+    "format": "CSV",
+    "data_category": "structured",
+    "expected_issues": [
+      "outliers",
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "outliers",
+      "date_as_string"
+    ],
+    "quality_score": 75.0,
+    "completeness_score": 100.0,
+    "consistency_score": 100.0,
+    "validity_score": 80.0,
+    "expected_quality_score": "< 100",
+    "description": "Dataset with intentionally introduced outliers (age=95, salary=450000) and date_as_string",
+    "performance": {
+      "load_time": 0.006,
+      "quality_time": 0.015
+    },
+    "detection_metrics": {
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.798770"
+  },
+  {
+    "dataset": "type_inconsistency.csv",
+    "format": "CSV",
+    "data_category": "structured",
+    "expected_issues": [
+      "inconsistent_type",
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "inconsistent_type",
+      "date_as_string"
+    ],
+    "quality_score": 85.0,
+    "completeness_score": 100.0,
+    "consistency_score": 85.0,
+    "validity_score": 100.0,
+    "expected_quality_score": "< 100",
+    "description": "Dataset with intentionally introduced type inconsistency (age as string 'twenty-nine') and date_as_string",
+    "performance": {
+      "load_time": 0.004,
+      "quality_time": 0.008
+    },
+    "detection_metrics": {
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.811990"
+  },
+  {
+    "dataset": "mixed_quality_dataset.csv",
+    "format": "CSV",
+    "data_category": "structured",
+    "expected_issues": [
+      "missing_values",
+      "outliers",
+      "inconsistent_type",
+      "partial_duplicates",
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "partial_duplicates",
+      "missing_values",
+      "inconsistent_type",
+      "date_as_string"
+    ],
+    "quality_score": 60.0,
+    "completeness_score": 90.0,
+    "consistency_score": 70.0,
+    "validity_score": 100.0,
+    "expected_quality_score": "< 75",
+    "description": "Dataset with multiple intentionally introduced quality issues: missing values, outliers, type inconsistency, partial duplicates, and date_as_string",
+    "performance": {
+      "load_time": 0.006,
+      "quality_time": 0.014
+    },
+    "detection_metrics": {
+      "true_positives": 4,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.889
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.833136"
+  },
+  {
+    "dataset": "clean_dataset.json",
+    "format": "JSON",
+    "data_category": "semi-structured",
+    "expected_issues": [
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "date_as_string"
+    ],
+    "quality_score": 95.0,
+    "completeness_score": 100.0,
+    "consistency_score": 100.0,
+    "validity_score": 100.0,
+    "expected_quality_score": 95,
+    "description": "Clean JSON dataset with date_as_string issue",
+    "performance": {
+      "load_time": 0.004,
+      "quality_time": 0.015
+    },
+    "detection_metrics": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.851958"
+  },
+  {
+    "dataset": "quality_issues.json",
+    "format": "JSON",
+    "data_category": "semi-structured",
+    "expected_issues": [
+      "missing_values",
+      "date_as_string"
+    ],
+    "detected_issues": [
+      "missing_values",
+      "date_as_string"
+    ],
+    "quality_score": 75.0,
+    "completeness_score": 90.0,
+    "consistency_score": 100.0,
+    "validity_score": 100.0,
+    "expected_quality_score": "< 100",
+    "description": "JSON dataset with missing value (null salary) and date_as_string",
+    "performance": {
+      "load_time": 0.006,
+      "quality_time": 0.015
+    },
+    "detection_metrics": {
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.873077"
+  },
+  {
+    "dataset": "clean_dataset.xml",
+    "format": "XML",
+    "data_category": "semi-structured",
+    "expected_issues": [
+      "date_as_string",
+      "inconsistent_type"
+    ],
+    "detected_issues": [
+      "inconsistent_type",
+      "date_as_string"
+    ],
+    "quality_score": 65.0,
+    "completeness_score": 100.0,
+    "consistency_score": 55.0,
+    "validity_score": 100.0,
+    "expected_quality_score": "< 100",
+    "description": "Clean XML dataset with date_as_string and some type inconsistency from XML parsing",
+    "performance": {
+      "load_time": 0.004,
+      "quality_time": 0.009
+    },
+    "detection_metrics": {
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.886724"
+  },
+  {
+    "dataset": "clean_document.txt",
+    "format": "TXT",
+    "data_category": "unstructured",
+    "expected_issues": [],
+    "detected_issues": [],
+    "quality_score": 100.0,
+    "completeness_score": 0.0,
+    "consistency_score": 0.0,
+    "validity_score": 0.0,
+    "expected_quality_score": 100,
+    "description": "Clean text document with no quality issues",
+    "performance": {
+      "load_time": 0.002,
+      "quality_time": 0.0
+    },
+    "detection_metrics": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.888231"
+  },
+  {
+    "dataset": "poor_quality_document.txt",
+    "format": "TXT",
+    "data_category": "unstructured",
+    "expected_issues": [
+      "special_characters",
+      "repetitive_content"
+    ],
+    "detected_issues": [],
+    "quality_score": 100.0,
+    "completeness_score": 0.0,
+    "consistency_score": 0.0,
+    "validity_score": 0.0,
+    "expected_quality_score": "< 100",
+    "description": "Poor quality text document with encoding issues, repetition, and special characters",
+    "performance": {
+      "load_time": 0.0,
+      "quality_time": 0.0
+    },
+    "detection_metrics": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 2,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0
+    },
+    "evaluation_timestamp": "2026-09-23T15:45:35.888808"
+  }
+]

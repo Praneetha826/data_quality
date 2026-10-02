@@ -1,0 +1,8 @@
+{
+  "dataset": "duplicate_records.csv",
+  "format": "CSV",
+  "data_category": "structured",
+  "expected_issues": ["duplicate_rows", "date_as_string"],
+  "expected_quality_score": "< 100",
+  "description": "Dataset with intentionally duplicated record (row 2 and row 6 are identical) and date_as_string"
+}

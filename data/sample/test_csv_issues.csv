@@ -1,0 +1,21 @@
+id,name,age,salary,department,email,hire_date
+1,John Smith,28,75000,Engineering,john.smith@company.com,2022-01-15
+2,Jane Doe,-5,65000,Marketing,jane.doe@company.com,2021-03-20
+3,Bob Johnson,42,55000,Sales,bob.johnson@company.com,2020-06-10
+4,Alice Williams,31,80000,Engineering,alice.williams@company.com,2022-07-01
+5,Charlie Brown,200,HR,50000,charlie.brown@company.com,2023-02-14
+6,Diana Prince,27,62000,Marketing,diana.prince@company.com,2023-04-18
+7,Eve Anderson,45,95000,Engineering,eve.anderson@company.com,2019-11-30
+8,Frank Miller,38,58000,Sales,frank.miller@company.com,2020-09-15
+9,Grace Lee,33,52000,HR,grace.lee@company.com,2021-12-01
+10,Henry Davis,29,72000,Engineering,henry.davis@company.com,2022-05-20
+1,John Smith,28,75000,Engineering,john.smith@company.com,2022-01-15
+12,Ivy Chen,26,61000,Marketing,ivy.chen@company.com,2023-08-10
+13,Jack Wilson,50,510000,Sales,jack.wilson@company.com,2018-02-28
+14,Kate Brown,32,,Engineering,kate.brown@company.com,2022-10-05
+15,Liam Johnson,29,53000,HR,,2023-01-12
+16,Mia Garcia,36,64000,Marketing,mia.garcia@company.com,2021-07-22
+17,Noah Martinez,31,78000,Engineering,noah.martinez@company.com,2022-03-17
+18,Olivia Taylor,27,56000,Sales,olivia.taylor@company.com,2023-06-08
+19,Paul Anderson,44,54000,HR,paul.anderson@company.com,2019-04-12
+20,Quinn Roberts,23,45000,Engineering,quinn.roberts@company.com,2024-01-05

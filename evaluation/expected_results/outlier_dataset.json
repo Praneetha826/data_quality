@@ -1,0 +1,8 @@
+{
+  "dataset": "outlier_dataset.csv",
+  "format": "CSV",
+  "data_category": "structured",
+  "expected_issues": ["outliers", "date_as_string"],
+  "expected_quality_score": "< 100",
+  "description": "Dataset with intentionally introduced outliers (age=95, salary=450000) and date_as_string"
+}

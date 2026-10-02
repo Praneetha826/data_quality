@@ -1,0 +1,8 @@
+{
+  "dataset": "mixed_quality_dataset.csv",
+  "format": "CSV",
+  "data_category": "structured",
+  "expected_issues": ["missing_values", "outliers", "inconsistent_type", "partial_duplicates", "date_as_string"],
+  "expected_quality_score": "< 75",
+  "description": "Dataset with multiple intentionally introduced quality issues: missing values, outliers, type inconsistency, partial duplicates, and date_as_string"
+}

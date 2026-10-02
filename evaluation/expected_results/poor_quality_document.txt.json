@@ -1,0 +1,8 @@
+{
+  "dataset": "poor_quality_document.txt",
+  "format": "TXT",
+  "data_category": "unstructured",
+  "expected_issues": ["special_characters", "repetitive_content"],
+  "expected_quality_score": "< 100",
+  "description": "Poor quality text document with encoding issues, repetition, and special characters"
+}

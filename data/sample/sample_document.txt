@@ -1,0 +1,38 @@
+Data Quality Assessment Sample Document
+
+This is a sample text document for testing the TXT loader functionality.
+The document contains multiple paragraphs and various text structures.
+
+Introduction
+Data quality assessment is crucial for enterprise data lakes. Poor data quality can lead to incorrect business decisions, inefficient operations, and missed opportunities.
+
+Key Data Quality Dimensions
+1. Completeness: Are all required data fields present?
+2. Accuracy: Is the data correct and accurate?
+3. Consistency: Is the data consistent across different sources?
+4. Timeliness: Is the data up-to-date?
+5. Validity: Does the data conform to defined formats and rules?
+6. Uniqueness: Are there duplicate records?
+
+Common Data Quality Issues
+- Missing values
+- Duplicate records
+- Outliers and anomalies
+- Inconsistent formatting
+- Invalid data types
+- Outdated information
+
+Benefits of Good Data Quality
+- Improved decision-making
+- Increased operational efficiency
+- Better customer relationships
+- Regulatory compliance
+- Cost reduction
+
+Conclusion
+Implementing a robust data quality assessment system is essential for modern data-driven organizations. This project demonstrates how retrieval-augmented generation using large language models can enhance traditional data quality assessment methods.
+
+Contact Information
+For more information about this project, please contact the development team.
+
+End of Sample Document

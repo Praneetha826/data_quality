@@ -1,0 +1,122 @@
+[
+  {
+    "employee_id": 1,
+    "name": "John Smith",
+    "age": 28,
+    "salary": 75000,
+    "department": "Engineering",
+    "email": "john.smith@company.com"
+  },
+  {
+    "employee_id": 2,
+    "name": "Jane Doe",
+    "age": -5,
+    "salary": 65000,
+    "department": "Marketing",
+    "email": "jane.doe@company.com"
+  },
+  {
+    "employee_id": 3,
+    "name": "Bob Johnson",
+    "age": 42,
+    "salary": 55000,
+    "department": "Sales",
+    "email": "bob.johnson@company.com"
+  },
+  {
+    "employee_id": 4,
+    "name": "Alice Williams",
+    "age": 31,
+    "salary": 80000,
+    "department": "Engineering",
+    "email": "alice.williams@company.com"
+  },
+  {
+    "employee_id": 5,
+    "name": "Charlie Brown",
+    "age": 200,
+    "salary": 50000,
+    "department": "HR",
+    "email": "charlie.brown@company.com"
+  },
+  {
+    "employee_id": 6,
+    "name": "Diana Prince",
+    "age": 27,
+    "salary": 62000,
+    "department": "Marketing",
+    "email": "diana.prince@company.com"
+  },
+  {
+    "employee_id": 7,
+    "name": "Eve Anderson",
+    "age": 45,
+    "salary": 95000,
+    "department": "Engineering",
+    "email": "eve.anderson@company.com"
+  },
+  {
+    "employee_id": 8,
+    "name": "Frank Miller",
+    "age": 38,
+    "salary": 58000,
+    "department": "Sales",
+    "email": "frank.miller@company.com"
+  },
+  {
+    "employee_id": 9,
+    "name": "Grace Lee",
+    "age": 33,
+    "salary": 52000,
+    "department": "HR",
+    "email": "grace.lee@company.com"
+  },
+  {
+    "employee_id": 10,
+    "name": "Henry Davis",
+    "age": 29,
+    "salary": 72000,
+    "department": "Engineering",
+    "email": "henry.davis@company.com"
+  },
+  {
+    "employee_id": 1,
+    "name": "John Smith",
+    "age": 28,
+    "salary": 75000,
+    "department": "Engineering",
+    "email": "john.smith@company.com"
+  },
+  {
+    "employee_id": 12,
+    "name": "Ivy Chen",
+    "age": 26,
+    "salary": 61000,
+    "department": "Marketing",
+    "email": "ivy.chen@company.com"
+  },
+  {
+    "employee_id": 13,
+    "name": "Jack Wilson",
+    "age": 50,
+    "salary": 510000,
+    "department": "Sales",
+    "email": "jack.wilson@company.com"
+  },
+  {
+    "employee_id": 14,
+    "name": "Kate Brown",
+    "age": 32,
+    "salary": null,
+    "department": "Engineering",
+    "email": "kate.brown@company.com"
+  },
+  {
+    "employee_id": 15,
+    "name": "Liam Johnson",
+    "age": 29,
+    "salary": 53000,
+    "department": "HR",
+    "email": null
+  }
+]

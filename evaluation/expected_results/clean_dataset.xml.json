@@ -1,0 +1,8 @@
+{
+  "dataset": "clean_dataset.xml",
+  "format": "XML",
+  "data_category": "semi-structured",
+  "expected_issues": ["date_as_string", "inconsistent_type"],
+  "expected_quality_score": "< 100",
+  "description": "Clean XML dataset with date_as_string and some type inconsistency from XML parsing"
+}

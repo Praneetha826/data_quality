@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+  <employee>
+    <employee_id>101</employee_id>
+    <name>John Smith</name>
+    <age>28</age>
+    <department>Engineering</department>
+    <salary>75000</salary>
+    <email>john.smith@example.com</email>
+    <hire_date>2020-01-15</hire_date>
+  </employee>
+  <employee>
+    <employee_id>102</employee_id>
+    <name>Jane Doe</name>
+    <age>32</age>
+    <department>Marketing</department>
+    <salary>68000</salary>
+    <email>jane.doe@example.com</email>
+    <hire_date>2019-03-20</hire_date>
+  </employee>
+  <employee>
+    <employee_id>103</employee_id>
+    <name>Bob Johnson</name>
+    <age>35</age>
+    <department>Sales</department>
+    <salary>72000</salary>
+    <email>bob.johnson@example.com</email>
+    <hire_date>2021-05-10</hire_date>
+  </employee>
+</employees>

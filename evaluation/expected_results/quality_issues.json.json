@@ -1,0 +1,8 @@
+{
+  "dataset": "quality_issues.json",
+  "format": "JSON",
+  "data_category": "semi-structured",
+  "expected_issues": ["missing_values", "date_as_string"],
+  "expected_quality_score": "< 100",
+  "description": "JSON dataset with missing value (null salary) and date_as_string"
+}

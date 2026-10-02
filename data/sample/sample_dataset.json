@@ -1,0 +1,182 @@
+[
+  {
+    "employee_id": 101,
+    "name": "John Smith",
+    "age": 28,
+    "department": "Engineering",
+    "salary": 75000,
+    "email": "john.smith@company.com",
+    "hire_date": "2022-01-15"
+  },
+  {
+    "employee_id": 102,
+    "name": "Jane Doe",
+    "age": 35,
+    "department": "Marketing",
+    "salary": 65000,
+    "email": "jane.doe@company.com",
+    "hire_date": "2021-03-20"
+  },
+  {
+    "employee_id": 103,
+    "name": "Bob Johnson",
+    "age": 42,
+    "department": "Sales",
+    "salary": 55000,
+    "email": "bob.johnson@company.com",
+    "hire_date": "2020-06-10"
+  },
+  {
+    "employee_id": 104,
+    "name": "Alice Williams",
+    "age": 31,
+    "department": "Engineering",
+    "salary": 80000,
+    "email": "alice.williams@company.com",
+    "hire_date": "2022-07-01"
+  },
+  {
+    "employee_id": 105,
+    "name": "Charlie Brown",
+    "age": 29,
+    "department": "HR",
+    "salary": 50000,
+    "email": "charlie.brown@company.com",
+    "hire_date": "2023-02-14"
+  },
+  {
+    "employee_id": 106,
+    "name": "Diana Prince",
+    "age": 27,
+    "department": "Marketing",
+    "salary": 62000,
+    "email": "diana.prince@company.com",
+    "hire_date": "2023-04-18"
+  },
+  {
+    "employee_id": 107,
+    "name": "Eve Anderson",
+    "age": 45,
+    "department": "Engineering",
+    "salary": 95000,
+    "email": "eve.anderson@company.com",
+    "hire_date": "2019-11-30"
+  },
+  {
+    "employee_id": 108,
+    "name": "Frank Miller",
+    "age": 38,
+    "department": "Sales",
+    "salary": 58000,
+    "email": "frank.miller@company.com",
+    "hire_date": "2020-09-15"
+  },
+  {
+    "employee_id": 109,
+    "name": "Grace Lee",
+    "age": 33,
+    "department": "HR",
+    "salary": 52000,
+    "email": "grace.lee@company.com",
+    "hire_date": "2021-12-01"
+  },
+  {
+    "employee_id": 110,
+    "name": "Henry Davis",
+    "age": 29,
+    "department": "Engineering",
+    "salary": 72000,
+    "email": "henry.davis@company.com",
+    "hire_date": "2022-05-20"
+  },
+  {
+    "employee_id": 101,
+    "name": "John Smith",
+    "age": 28,
+    "department": "Engineering",
+    "salary": 75000,
+    "email": "john.smith@company.com",
+    "hire_date": "2022-01-15"
+  },
+  {
+    "employee_id": 111,
+    "name": "Ivy Chen",
+    "age": 26,
+    "department": "Marketing",
+    "salary": 61000,
+    "email": "ivy.chen@company.com",
+    "hire_date": "2023-08-10"
+  },
+  {
+    "employee_id": 112,
+    "name": "Jack Wilson",
+    "age": 50,
+    "department": "Sales",
+    "salary": 510000,
+    "email": "jack.wilson@company.com",
+    "hire_date": "2018-02-28"
+  },
+  {
+    "employee_id": 113,
+    "name": "Kate Brown",
+    "age": 32,
+    "department": "Engineering",
+    "salary": null,
+    "email": "kate.brown@company.com",
+    "hire_date": "2022-10-05"
+  },
+  {
+    "employee_id": 114,
+    "name": "Liam Johnson",
+    "age": 29,
+    "department": "HR",
+    "salary": 53000,
+    "email": null,
+    "hire_date": "2023-01-12"
+  },
+  {
+    "employee_id": 115,
+    "name": "Mia Garcia",
+    "age": 36,
+    "department": "Marketing",
+    "salary": 64000,
+    "email": "mia.garcia@company.com",
+    "hire_date": "2021-07-22"
+  },
+  {
+    "employee_id": 116,
+    "name": "Noah Martinez",
+    "age": 31,
+    "department": "Engineering",
+    "salary": 78000,
+    "email": "noah.martinez@company.com",
+    "hire_date": "2022-03-17"
+  },
+  {
+    "employee_id": 117,
+    "name": "Olivia Taylor",
+    "age": 27,
+    "department": "Sales",
+    "salary": 56000,
+    "email": "olivia.taylor@company.com",
+    "hire_date": "2023-06-08"
+  },
+  {
+    "employee_id": 118,
+    "name": "Paul Anderson",
+    "age": 44,
+    "department": "HR",
+    "salary": 54000,
+    "email": "paul.anderson@company.com",
+    "hire_date": "2019-04-12"
+  },
+  {
+    "employee_id": 119,
+    "name": "Quinn Roberts",
+    "age": 23,
+    "department": "Engineering",
+    "salary": 45000,
+    "email": "quinn.roberts@company.com",
+    "hire_date": "2024-01-05"
+  }
+]

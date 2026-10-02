@@ -1,0 +1,8 @@
+{
+  "dataset": "missing_values.csv",
+  "format": "CSV",
+  "data_category": "structured",
+  "expected_issues": ["missing_values", "date_as_string"],
+  "expected_quality_score": "< 100",
+  "description": "Dataset with intentionally missing salary and email values and date_as_string"
+}

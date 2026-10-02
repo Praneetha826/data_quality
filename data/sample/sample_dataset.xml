@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+  <employee>
+    <employee_id>101</employee_id>
+    <name>John Smith</name>
+    <age>28</age>
+    <department>Engineering</department>
+    <salary>75000</salary>
+    <email>john.smith@company.com</email>
+    <hire_date>2022-01-15</hire_date>
+  </employee>
+  <employee>
+    <employee_id>102</employee_id>
+    <name>Jane Doe</name>
+    <age>35</age>
+    <department>Marketing</department>
+    <salary>65000</salary>
+    <email>jane.doe@company.com</email>
+    <hire_date>2021-03-20</hire_date>
+  </employee>
+  <employee>
+    <employee_id>103</employee_id>
+    <name>Bob Johnson</name>
+    <age>42</age>
+    <department>Sales</department>
+    <salary>55000</salary>
+    <email>bob.johnson@company.com</email>
+    <hire_date>2020-06-10</hire_date>
+  </employee>
+  <employee>
+    <employee_id>104</employee_id>
+    <name>Alice Williams</name>
+    <age>31</age>
+    <department>Engineering</department>
+    <salary>80000</salary>
+    <email>alice.williams@company.com</email>
+    <hire_date>2022-07-01</hire_date>
+  </employee>
+  <employee>
+    <employee_id>105</employee_id>
+    <name>Charlie Brown</name>
+    <age>29</age>
+    <department>HR</department>
+    <salary>50000</salary>
+    <email>charlie.brown@company.com</email>
+    <hire_date>2023-02-14</hire_date>
+  </employee>
+  <employee>
+    <employee_id>106</employee_id>
+    <name>Diana Prince</name>
+    <age>27</age>
+    <department>Marketing</department>
+    <salary>62000</salary>
+    <email>diana.prince@company.com</email>
+    <hire_date>2023-04-18</hire_date>
+  </employee>
+  <employee>
+    <employee_id>107</employee_id>
+    <name>Eve Anderson</name>
+    <age>45</age>
+    <department>Engineering</department>
+    <salary>95000</salary>
+    <email>eve.anderson@company.com</email>
+    <hire_date>2019-11-30</hire_date>
+  </employee>
+  <employee>
+    <employee_id>108</employee_id>
+    <name>Frank Miller</name>
+    <age>38</age>
+    <department>Sales</department>
+    <salary>58000</salary>
+    <email>frank.miller@company.com</email>
+    <hire_date>2020-09-15</hire_date>
+  </employee>
+  <employee>
+    <employee_id>109</employee_id>
+    <name>Grace Lee</name>
+    <age>33</age>
+    <department>HR</department>
+    <salary>52000</salary>
+    <email>grace.lee@company.com</email>
+    <hire_date>2021-12-01</hire_date>
+  </employee>
+  <employee>
+    <employee_id>110</employee_id>
+    <name>Henry Davis</name>
+    <age>29</age>
+    <department>Engineering</department>
+    <salary>72000</salary>
+    <email>henry.davis@company.com</email>
+    <hire_date>2022-05-20</hire_date>
+  </employee>
+  <employee>
+    <employee_id>101</employee_id>
+    <name>John Smith</name>
+    <age>28</age>
+    <department>Engineering</department>
+    <salary>75000</salary>
+    <email>john.smith@company.com</email>
+    <hire_date>2022-01-15</hire_date>
+  </employee>
+  <employee>
+    <employee_id>111</employee_id>
+    <name>Ivy Chen</name>
+    <age>26</age>
+    <department>Marketing</department>
+    <salary>61000</salary>
+    <email>ivy.chen@company.com</email>
+    <hire_date>2023-08-10</hire_date>
+  </employee>
+  <employee>
+    <employee_id>112</employee_id>
+    <name>Jack Wilson</name>
+    <age>50</age>
+    <department>Sales</department>
+    <salary>510000</salary>
+    <email>jack.wilson@company.com</email>
+    <hire_date>2018-02-28</hire_date>
+  </employee>
+  <employee>
+    <employee_id>113</employee_id>
+    <name>Kate Brown</name>
+    <age>32</age>
+    <department>Engineering</department>
+    <salary></salary>
+    <email>kate.brown@company.com</email>
+    <hire_date>2022-10-05</hire_date>
+  </employee>
+  <employee>
+    <employee_id>114</employee_id>
+    <name>Liam Johnson</name>
+    <age>29</age>
+    <department>HR</department>
+    <salary>53000</salary>
+    <email></email>
+    <hire_date>2023-01-12</hire_date>
+  </employee>
+  <employee>
+    <employee_id>115</employee_id>
+    <name>Mia Garcia</name>
+    <age>36</age>
+    <department>Marketing</department>
+    <salary>64000</salary>
+    <email>mia.garcia@company.com</email>
+    <hire_date>2021-07-22</hire_date>
+  </employee>
+  <employee>
+    <employee_id>116</employee_id>
+    <name>Noah Martinez</name>
+    <age>31</age>
+    <department>Engineering</department>
+    <salary>78000</salary>
+    <email>noah.martinez@company.com</email>
+    <hire_date>2022-03-17</hire_date>
+  </employee>
+  <employee>
+    <employee_id>117</employee_id>
+    <name>Olivia Taylor</name>
+    <age>27</age>
+    <department>Sales</department>
+    <salary>56000</salary>
+    <email>olivia.taylor@company.com</email>
+    <hire_date>2023-06-08</hire_date>
+  </employee>
+  <employee>
+    <employee_id>118</employee_id>
+    <name>Paul Anderson</name>
+    <age>44</age>
+    <department>HR</department>
+    <salary>54000</salary>
+    <email>paul.anderson@company.com</email>
+    <hire_date>2019-04-12</hire_date>
+  </employee>
+  <employee>
+    <employee_id>119</employee_id>
+    <name>Quinn Roberts</name>
+    <age>23</age>
+    <department>Engineering</department>
+    <salary>45000</salary>
+    <email>quinn.roberts@company.com</email>
+    <hire_date>2024-01-05</hire_date>
+  </employee>
+</employees>

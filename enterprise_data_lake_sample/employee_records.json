@@ -1,0 +1,326 @@
+[
+  {
+    "Employee ID": "EMP3412",
+    "Name": "Jennifer Williams",
+    "Department": "Engineering",
+    "Age": 59,
+    "Salary": 169921,
+    "Hire Date": "2024-03-16",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP4749",
+    "Name": "Nicole Hernandez",
+    "Department": "Operations",
+    "Age": 30,
+    "Salary": 184272,
+    "Hire Date": "2018-12-22",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP2349",
+    "Name": "Sarah Taylor",
+    "Department": "Finance",
+    "Age": 23,
+    "Salary": 51734,
+    "Hire Date": "2021-02-16",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP1595",
+    "Name": "Elizabeth Gonzalez",
+    "Department": "Support",
+    "Age": 59,
+    "Salary": 147690,
+    "Hire Date": "2020-02-08",
+    "Employment Status": "Part-time"
+  },
+  {
+    "Employee ID": "EMP1568",
+    "Name": "Thomas Wilson",
+    "Department": "Engineering",
+    "Age": 65,
+    "Salary": 169839,
+    "Hire Date": "2022-05-29",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP2726",
+    "Name": "Nicole Jones",
+    "Department": "Engineering",
+    "Age": 150,
+    "Salary": 130801,
+    "Hire Date": "2016-05-04",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP7366",
+    "Name": "Sarah Lopez",
+    "Department": "Engineering",
+    "Age": 56,
+    "Salary": 90604,
+    "Hire Date": "2023-09-21",
+    "Employment Status": "Contract"
+  },
+  {
+    "Employee ID": "EMP3604",
+    "Name": "Charles Hernandez",
+    "Department": "Marketing",
+    "Age": 29,
+    "Salary": 194400,
+    "Hire Date": "2017-03-07",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP5257",
+    "Name": "John Lopez",
+    "Department": "Legal",
+    "Age": 41,
+    "Salary": 181688,
+    "Hire Date": "2018-05-22",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP5170",
+    "Name": "David Moore",
+    "Department": "Sales",
+    "Age": 57,
+    "Salary": 132067,
+    "Hire Date": "2019-08-19",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP5529",
+    "Name": "Richard Martinez",
+    "Department": "Legal",
+    "Age": 57,
+    "Salary": "",
+    "Hire Date": "2015-05-13",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP9228",
+    "Name": "Jessica Jones",
+    "Department": "HR",
+    "Age": 41,
+    "Salary": 198968,
+    "Hire Date": "2018-03-02",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP9973",
+    "Name": "William Johnson",
+    "Department": "Engineering",
+    "Age": 44,
+    "Salary": 99078,
+    "Hire Date": "2017-02-09",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP1663",
+    "Name": "Michael Moore",
+    "Department": "Marketing",
+    "Age": 63,
+    "Salary": 103839,
+    "Hire Date": "2021-09-01",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP4662",
+    "Name": "Nicole Wilson",
+    "Department": "Sales",
+    "Age": 43,
+    "Salary": 193530,
+    "Hire Date": "2023-03-15",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP3922",
+    "Name": "John Jones",
+    "Department": "Management",
+    "Age": 32,
+    "Salary": 108054,
+    "Hire Date": "2022-10-31",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP1340",
+    "Name": "Robert Lopez",
+    "Department": "HR",
+    "Age": 53,
+    "Salary": 134149,
+    "Hire Date": "2018-10-12",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP4987",
+    "Name": "Sarah Taylor",
+    "Department": "Marketing",
+    "Age": 50,
+    "Salary": 100743,
+    "Hire Date": "2021-07-04",
+    "Employment Status": "Part-time"
+  },
+  {
+    "Employee ID": "EMP2972",
+    "Name": "Robert Martinez",
+    "Department": "Legal",
+    "Age": 61,
+    "Salary": 199186,
+    "Hire Date": "2022-11-05",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP4909",
+    "Name": "Charles Thomas",
+    "Department": "HR",
+    "Age": 29,
+    "Salary": 168643,
+    "Hire Date": "2015-04-06",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP8262",
+    "Name": "John Martin",
+    "Department": "HR",
+    "Age": 48,
+    "Salary": 197535,
+    "Hire Date": "",
+    "Employment Status": "Contract"
+  },
+  {
+    "Employee ID": "EMP7404",
+    "Name": "Thomas Johnson",
+    "Department": "Legal",
+    "Age": 50,
+    "Salary": 54865,
+    "Hire Date": "2016-06-16",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP8018",
+    "Name": "Ashley Miller",
+    "Department": "Sales",
+    "Age": 40,
+    "Salary": 143235,
+    "Hire Date": "2016-07-25",
+    "Employment Status": "Part-time"
+  },
+  {
+    "Employee ID": "EMP4316",
+    "Name": "Robert Thomas",
+    "Department": "Marketing",
+    "Age": 48,
+    "Salary": 177594,
+    "Hire Date": "2020-01-23",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP1798",
+    "Name": "Emily Davis",
+    "Department": "Operations",
+    "Age": 39,
+    "Salary": 163492,
+    "Hire Date": "2020-09-21",
+    "Employment Status": "Contract"
+  },
+  {
+    "Employee ID": "EMP4841",
+    "Name": "David Rodriguez",
+    "Department": "Operations",
+    "Age": 45,
+    "Salary": 187448,
+    "Hire Date": "2017-11-24",
+    "Employment Status": "permanent"
+  },
+  {
+    "Employee ID": "EMP5479",
+    "Name": "Sarah Davis",
+    "Department": "HR",
+    "Age": 63,
+    "Salary": 181874,
+    "Hire Date": "2023-11-20",
+    "Employment Status": "Contract"
+  },
+  {
+    "Employee ID": "EMP3960",
+    "Name": "Melissa Anderson",
+    "Department": "Operations",
+    "Age": 24,
+    "Salary": 154941,
+    "Hire Date": "2021-05-10",
+    "Employment Status": "Contract"
+  },
+  {
+    "Employee ID": "EMP7299",
+    "Name": "Ashley Martin",
+    "Department": "Sales",
+    "Age": 49,
+    "Salary": 90571,
+    "Hire Date": "2019-06-29",
+    "Employment Status": "Part-time"
+  },
+  {
+    "Employee ID": "EMP7514",
+    "Name": "William Miller",
+    "Department": "Legal",
+    "Age": 64,
+    "Salary": 121786,
+    "Hire Date": "2023-01-10",
+    "Employment Status": "Contract"
+  },
+  {
+    "Employee ID": "EMP9949",
+    "Name": "Michael Williams",
+    "Department": "Support",
+    "Age": 18,
+    "Salary": 196773,
+    "Hire Date": "2017-06-18",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP7831",
+    "Name": "Ashley Jones",
+    "Department": "Support",
+    "Age": 65,
+    "Salary": 95659,
+    "Hire Date": "2024-01-14",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP2555",
+    "Name": "William Wilson",
+    "Department": "Finance",
+    "Age": 31,
+    "Salary": 153380,
+    "Hire Date": "2021-03-31",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP7579",
+    "Name": "Joseph Brown",
+    "Department": "Marketing",
+    "Age": 25,
+    "Salary": 119965,
+    "Hire Date": "2021-09-27",
+    "Employment Status": "Part-time"
+  },
+  {
+    "Employee ID": "EMP7028",
+    "Name": "Amanda Williams",
+    "Department": "Sales",
+    "Age": 34,
+    "Salary": 118977,
+    "Hire Date": "2023-03-17",
+    "Employment Status": "Full-time"
+  },
+  {
+    "Employee ID": "EMP3412",
+    "Name": "Jennifer Williams",
+    "Department": "Engineering",
+    "Age": 59,
+    "Salary": 169921,
+    "Hire Date": "2024-03-16",
+    "Employment Status": "Full-time"
+  }
+]

@@ -1,0 +1,15 @@
+This is a poor quality document with multiple issues.
+
+It has encoding problems like this:  
+
+This has excessive repetition repetition repetition repetition repetition repetition repetition repetition repetition.
+
+This has many special characters: @#$%^&*()_+-=[]{}|;':",./<>?
+
+This has control characters and unusual formatting.
+
+This paragraph is very short.
+
+This paragraph is also very short.
+
+The document lacks proper structure and organization.

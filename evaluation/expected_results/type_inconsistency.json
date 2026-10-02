@@ -1,0 +1,8 @@
+{
+  "dataset": "type_inconsistency.csv",
+  "format": "CSV",
+  "data_category": "structured",
+  "expected_issues": ["inconsistent_type", "date_as_string"],
+  "expected_quality_score": "< 100",
+  "description": "Dataset with intentionally introduced type inconsistency (age as string 'twenty-nine') and date_as_string"
+}

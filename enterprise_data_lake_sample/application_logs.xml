@@ -1,0 +1,413 @@
+<?xml version="1.0" ?>
+<ApplicationLogs>
+  <Log>
+    <LogID>LOG3570770</LogID>
+    <Timestamp>2024-12-28 00:00:00</Timestamp>
+    <EmployeeID>EMP9973</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2495</ResponseTime>
+    <StatusCode>500</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG8210725</LogID>
+    <Timestamp>2024-02-02 00:00:00</Timestamp>
+    <EmployeeID>EMP3922</EmployeeID>
+    <Service>payment_api</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>4741</ResponseTime>
+    <StatusCode>200</StatusCode>
+    <Message>Request processed successfully for reporting</Message>
+  </Log>
+  <Log>
+    <LogID>LOG9561944</LogID>
+    <Timestamp>2024-07-30 00:00:00</Timestamp>
+    <EmployeeID>EMP5479</EmployeeID>
+    <Service>analytics</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>4072</ResponseTime>
+    <StatusCode>401</StatusCode>
+    <Message>Request processed successfully for email_service</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1656049</LogID>
+    <Timestamp>2024-02-09 00:00:00</Timestamp>
+    <EmployeeID>EMP1595</EmployeeID>
+    <Service>auth_service</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>507</ResponseTime>
+    <StatusCode>200</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG6797362</LogID>
+    <Timestamp>2024-08-05 00:00:00</Timestamp>
+    <EmployeeID>EMP7366</EmployeeID>
+    <Service>auth_service</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>3636</ResponseTime>
+    <StatusCode>201</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG7166899</LogID>
+    <Timestamp>2024-11-27 00:00:00</Timestamp>
+    <EmployeeID>EMP4987</EmployeeID>
+    <Service>auth_service</Service>
+    <LogLevel>DEBUG</LogLevel>
+    <ResponseTime>-100</ResponseTime>
+    <StatusCode>401</StatusCode>
+    <Message>Request processed successfully for inventory</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1597260</LogID>
+    <Timestamp>2024-07-30 00:00:00</Timestamp>
+    <EmployeeID>EMP8018</EmployeeID>
+    <Service>email_service</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2033</ResponseTime>
+    <StatusCode>200</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG8528241</LogID>
+    <Timestamp>2024-12-04 00:00:00</Timestamp>
+    <EmployeeID>EMP1798</EmployeeID>
+    <Service>analytics</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2358</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG9089686</LogID>
+    <Timestamp>2024-10-06 00:00:00</Timestamp>
+    <EmployeeID>EMP1340</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>DEBUG</LogLevel>
+    <ResponseTime>1770</ResponseTime>
+    <StatusCode>201</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1261846</LogID>
+    <Timestamp>2024-08-30 00:00:00</Timestamp>
+    <EmployeeID>EMP7299</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>3962</ResponseTime>
+    <StatusCode>404</StatusCode>
+    <Message>Request processed successfully for auth_service</Message>
+  </Log>
+  <Log>
+    <LogID>LOG3205714</LogID>
+    <Timestamp>2024-06-21 00:00:00</Timestamp>
+    <EmployeeID>EMP5257</EmployeeID>
+    <Service>inventory</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>2980</ResponseTime>
+    <StatusCode>999</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG5526326</LogID>
+    <Timestamp>2024-12-03 00:00:00</Timestamp>
+    <EmployeeID>EMP9973</EmployeeID>
+    <Service>inventory</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>866</ResponseTime>
+    <StatusCode>400</StatusCode>
+    <Message>Request processed successfully for inventory</Message>
+  </Log>
+  <Log>
+    <LogID>LOG2378769</LogID>
+    <Timestamp>2024-10-20 00:00:00</Timestamp>
+    <EmployeeID>EMP3922</EmployeeID>
+    <Service>auth_service</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>2122</ResponseTime>
+    <StatusCode>403</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG2645084</LogID>
+    <Timestamp>2024-02-06 00:00:00</Timestamp>
+    <EmployeeID>EMP4749</EmployeeID>
+    <Service>auth_service</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>1176</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for inventory</Message>
+  </Log>
+  <Log>
+    <LogID>LOG4195369</LogID>
+    <Timestamp>2024-01-01 00:00:00</Timestamp>
+    <EmployeeID>EMP7299</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>2839</ResponseTime>
+    <StatusCode>403</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1910880</LogID>
+    <Timestamp>2024-11-18 00:00:00</Timestamp>
+    <EmployeeID>EMP9999</EmployeeID>
+    <Service>email_service</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>2146</ResponseTime>
+    <StatusCode>400</StatusCode>
+    <Message>Request processed successfully for inventory</Message>
+  </Log>
+  <Log>
+    <LogID>LOG8903030</LogID>
+    <Timestamp>2024-08-26 00:00:00</Timestamp>
+    <EmployeeID>EMP4316</EmployeeID>
+    <Service>reporting</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>2649</ResponseTime>
+    <StatusCode>500</StatusCode>
+    <Message>Request processed successfully for email_service</Message>
+  </Log>
+  <Log>
+    <LogID>LOG9459190</LogID>
+    <Timestamp>2024-02-23 00:00:00</Timestamp>
+    <EmployeeID>EMP2349</EmployeeID>
+    <Service>user_dashboard</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>356</ResponseTime>
+    <StatusCode>400</StatusCode>
+    <Message>Request processed successfully for email_service</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1750890</LogID>
+    <Timestamp>2024-03-11 00:00:00</Timestamp>
+    <EmployeeID>EMP7366</EmployeeID>
+    <Service>reporting</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>4304</ResponseTime>
+    <StatusCode>500</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG3152446</LogID>
+    <Timestamp>2024-10-29 00:00:00</Timestamp>
+    <EmployeeID>EMP9228</EmployeeID>
+    <Service>analytics</Service>
+    <LogLevel>DEBUG</LogLevel>
+    <ResponseTime>1522</ResponseTime>
+    <StatusCode>200</StatusCode>
+    <Message>Request processed successfully for reporting</Message>
+  </Log>
+  <Log>
+    <LogID>LOG9551939</LogID>
+    <Timestamp/>
+    <EmployeeID>EMP9973</EmployeeID>
+    <Service>inventory</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2801</ResponseTime>
+    <StatusCode>400</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG8048203</LogID>
+    <Timestamp>2024-05-19 00:00:00</Timestamp>
+    <EmployeeID>EMP2726</EmployeeID>
+    <Service>email_service</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2242</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for inventory</Message>
+  </Log>
+  <Log>
+    <LogID>LOG9978302</LogID>
+    <Timestamp>2024-11-06 00:00:00</Timestamp>
+    <EmployeeID>EMP2972</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>748</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for reporting</Message>
+  </Log>
+  <Log>
+    <LogID>LOG5328888</LogID>
+    <Timestamp>2024-08-20 00:00:00</Timestamp>
+    <EmployeeID>EMP1568</EmployeeID>
+    <Service>inventory</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>1308</ResponseTime>
+    <StatusCode>401</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG5536198</LogID>
+    <Timestamp>2024-12-22 00:00:00</Timestamp>
+    <EmployeeID>EMP2726</EmployeeID>
+    <Service>user_dashboard</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>322</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for analytics</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1349024</LogID>
+    <Timestamp>2024-03-24 00:00:00</Timestamp>
+    <EmployeeID>EMP2972</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>CRITICAL</LogLevel>
+    <ResponseTime>267</ResponseTime>
+    <StatusCode>403</StatusCode>
+    <Message>Request processed successfully for reporting</Message>
+  </Log>
+  <Log>
+    <LogID>LOG4640741</LogID>
+    <Timestamp>2024-10-27 00:00:00</Timestamp>
+    <EmployeeID>EMP4987</EmployeeID>
+    <Service>payment_api</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>532</ResponseTime>
+    <StatusCode>401</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG2667328</LogID>
+    <Timestamp>2024-03-15 00:00:00</Timestamp>
+    <EmployeeID>EMP1595</EmployeeID>
+    <Service>reporting</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>3472</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG2843459</LogID>
+    <Timestamp>2024-09-11 00:00:00</Timestamp>
+    <EmployeeID>EMP9973</EmployeeID>
+    <Service>analytics</Service>
+    <LogLevel>DEBUG</LogLevel>
+    <ResponseTime>3000</ResponseTime>
+    <StatusCode>500</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG7204199</LogID>
+    <Timestamp>2024-09-02 00:00:00</Timestamp>
+    <EmployeeID>EMP5170</EmployeeID>
+    <Service>user_dashboard</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>4808</ResponseTime>
+    <StatusCode>201</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1040765</LogID>
+    <Timestamp>2024-12-27 00:00:00</Timestamp>
+    <EmployeeID>EMP7299</EmployeeID>
+    <Service>user_dashboard</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>100000</ResponseTime>
+    <StatusCode>503</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG4014875</LogID>
+    <Timestamp>2024-08-02 00:00:00</Timestamp>
+    <EmployeeID>EMP1798</EmployeeID>
+    <Service>payment_api</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>4713</ResponseTime>
+    <StatusCode>500</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG8547035</LogID>
+    <Timestamp>2024-10-18 00:00:00</Timestamp>
+    <EmployeeID>EMP7299</EmployeeID>
+    <Service>email_service</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>4968</ResponseTime>
+    <StatusCode>401</StatusCode>
+    <Message>Request processed successfully for email_service</Message>
+  </Log>
+  <Log>
+    <LogID>LOG9162315</LogID>
+    <Timestamp>2024-08-04 00:00:00</Timestamp>
+    <EmployeeID>EMP1595</EmployeeID>
+    <Service>inventory</Service>
+    <LogLevel>DEBUG</LogLevel>
+    <ResponseTime>1876</ResponseTime>
+    <StatusCode>403</StatusCode>
+    <Message>Request processed successfully for user_dashboard</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1461414</LogID>
+    <Timestamp>2024-01-04 00:00:00</Timestamp>
+    <EmployeeID>EMP8262</EmployeeID>
+    <Service>email_service</Service>
+    <LogLevel>INFO</LogLevel>
+    <ResponseTime>1664</ResponseTime>
+    <StatusCode>400</StatusCode>
+    <Message>Request processed successfully for auth_service</Message>
+  </Log>
+  <Log>
+    <LogID>LOG1504468</LogID>
+    <Timestamp>2024-05-10 00:00:00</Timestamp>
+    <EmployeeID>EMP3922</EmployeeID>
+    <Service>auth_service</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2178</ResponseTime>
+    <StatusCode>200</StatusCode>
+    <Message>Request processed successfully for analytics</Message>
+  </Log>
+  <Log>
+    <LogID>LOG5167759</LogID>
+    <Timestamp>2024-11-27 00:00:00</Timestamp>
+    <EmployeeID>EMP1568</EmployeeID>
+    <Service>inventory</Service>
+    <LogLevel>ERROR</LogLevel>
+    <ResponseTime>4668</ResponseTime>
+    <StatusCode>401</StatusCode>
+    <Message>Request processed successfully for analytics</Message>
+  </Log>
+  <Log>
+    <LogID>LOG2634580</LogID>
+    <Timestamp>2024-11-23 00:00:00</Timestamp>
+    <EmployeeID>EMP5170</EmployeeID>
+    <Service>reporting</Service>
+    <LogLevel>DEBUG</LogLevel>
+    <ResponseTime>4925</ResponseTime>
+    <StatusCode>201</StatusCode>
+    <Message>Request processed successfully for reporting</Message>
+  </Log>
+  <Log>
+    <LogID>LOG4273721</LogID>
+    <Timestamp>2024-04-02 00:00:00</Timestamp>
+    <EmployeeID>EMP4909</EmployeeID>
+    <Service>reporting</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>226</ResponseTime>
+    <StatusCode>403</StatusCode>
+    <Message>Request processed successfully for payment_api</Message>
+  </Log>
+  <Log>
+    <LogID>LOG4697474</LogID>
+    <Timestamp>2024-11-28 00:00:00</Timestamp>
+    <EmployeeID>EMP5479</EmployeeID>
+    <Service>email_service</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2596</ResponseTime>
+    <StatusCode>400</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+  <Log>
+    <LogID>LOG3570770</LogID>
+    <Timestamp>2024-12-28 00:00:00</Timestamp>
+    <EmployeeID>EMP9973</EmployeeID>
+    <Service>data_sync</Service>
+    <LogLevel>WARNING</LogLevel>
+    <ResponseTime>2495</ResponseTime>
+    <StatusCode>500</StatusCode>
+    <Message>Request processed successfully for data_sync</Message>
+  </Log>
+</ApplicationLogs>

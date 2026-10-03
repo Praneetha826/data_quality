@@ -5,10 +5,9 @@ Supports: local models (Llama 3, Qwen) and cloud APIs (Gemini)
 """
 
 from typing import Optional, Dict, Any
+import sys
 import os
 import time
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
 try:
     from google import genai
@@ -91,6 +90,20 @@ class LLMClient:
 
     def _load_local_model(self):
         """Load local Hugging Face model"""
+        try:
+            import torch
+            _ = torch.tensor([1.0])
+            from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+        except (ImportError, OSError) as e:
+            for mod in list(sys.modules.keys()):
+                if mod.startswith(('torch', 'transformers', 'sentence_transformers')):
+                    sys.modules.pop(mod, None)
+            print(f"PyTorch / Transformers is not available or blocked by Application Control policy ({e}).")
+            print("Will use rule-based fallback")
+            self.model = None
+            self.pipeline = None
+            return
+
         try:
             print(f"Loading local LLM model: {self.model_name}")
             print("This may take several minutes on CPU...")

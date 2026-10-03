@@ -48,7 +48,8 @@ performance_test.db
 .DS_Store
 
 # Streamlit
-.streamlit/
+.streamlit/*
+!.streamlit/config.toml
 
 # Test outputs
 *.log

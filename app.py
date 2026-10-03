@@ -7,6 +7,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import hashlib
+import html
 from pathlib import Path
 import sys
 import os
@@ -81,6 +82,15 @@ APP_STYLES = """
         border-radius: 10px; padding: .8rem 1rem;
     }
     [data-testid="stMetricValue"] { color: var(--ink); }
+    .score-card { text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .9rem .5rem; }
+    .score-ring {
+        width: 78px; height: 78px; border-radius: 50%; margin: 0 auto .55rem;
+        display: grid; place-items: center; position: relative;
+        background: conic-gradient(var(--ring-color) var(--score), #e7ece9 0);
+    }
+    .score-ring::before { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: var(--panel); }
+    .score-ring-value { z-index: 1; font-size: 1.12rem; font-weight: 700; color: var(--ink); }
+    .score-label { color: var(--muted); font-size: .79rem; }
     [data-testid="stDataFrame"], [data-testid="stTable"] {
         border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
     }
@@ -168,7 +178,7 @@ def render_header(db_manager, llm_model):
     st.markdown("""
     <div class="topbar">
         <span class="topbar-brand">DATA QUALITY • INSIGHTS</span>
-        <span class="topbar-status">""" + db_label + " &nbsp; · &nbsp; " + model_display + """</span>
+        <span class="topbar-status">""" + db_label + " &nbsp; · &nbsp; " + html.escape(model_display) + """</span>
     </div>
     """, unsafe_allow_html=True)
     st.markdown('<h1 class="page-title">Data Quality Dashboard</h1>', unsafe_allow_html=True)
@@ -183,25 +193,43 @@ def render_section_header(number, title):
     st.markdown(f'<div class="section-title">{number:02d} — {title}</div>', unsafe_allow_html=True)
 
 
+def render_score_ring(label, score, applicable=True, color="#5797b7"):
+    """Render a compact circular quality score indicator."""
+    score_value = max(0.0, min(100.0, float(score))) if applicable else 0.0
+    display_value = f"{score_value:.0f}" if applicable else "N/A"
+    st.markdown(
+        f"""
+        <div class="score-card">
+            <div class="score-ring" role="img" aria-label="{html.escape(label)}: {display_value} out of 100"
+                 style="--score: {score_value:.1f}%; --ring-color: {color}">
+                <span class="score-ring-value">{display_value}</span>
+            </div>
+            <div class="score-label">{html.escape(label)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def render_dashboard_overview(normalized_asset, quality_report, db_manager, is_tabular):
     """Show current quality indicators and persisted assessment history."""
     file_name = Path(normalized_asset.metadata.get('file_name', 'Dataset')).name
     file_size_mb = normalized_asset.metadata.get('file_size', 0) / (1024 * 1024)
     issue_count = len(quality_report.issues)
 
-    st.markdown(f"### Latest assessment · {file_name}")
+    st.markdown(f"### Latest assessment · {html.escape(file_name)}")
     st.caption(f"{normalized_asset.source_format} · {normalized_asset.data_category} · {file_size_mb:.2f} MB")
 
     metric_columns = st.columns(4)
     metrics = [
-        ("Quality score", f"{quality_report.quality_score:.0f}/100"),
-        ("Completeness", f"{quality_report.completeness_score:.0f}/100" if is_tabular else "N/A"),
-        ("Consistency", f"{quality_report.consistency_score:.0f}/100" if is_tabular else "N/A"),
-        ("Detected issues", str(issue_count)),
+        ("Overall quality", quality_report.quality_score, True, "#c66e78"),
+        ("Completeness", quality_report.completeness_score, is_tabular, "#5797b7"),
+        ("Consistency", quality_report.consistency_score, is_tabular, "#438f89"),
+        ("Validity", quality_report.validity_score, is_tabular, "#9173a4"),
     ]
-    for column, (label, value) in zip(metric_columns, metrics):
+    for column, (label, score, applicable, color) in zip(metric_columns, metrics):
         with column:
-            st.metric(label, value)
+            render_score_ring(label, score, applicable, color)
 
     chart_column, severity_column = st.columns([1.8, 1])
     with chart_column, st.container(border=True):
@@ -232,7 +260,7 @@ def render_dashboard_overview(normalized_asset, quality_report, db_manager, is_t
             st.info("Save an assessment to build a quality score history.")
 
     with severity_column, st.container(border=True):
-        st.markdown("#### Issue profile")
+        st.markdown(f"#### Issue profile · {issue_count} detected")
         severity_data = {
             str(severity).replace("_", " ").title(): int(count)
             for severity, count in quality_report.issues_by_severity.items()
@@ -1026,7 +1054,7 @@ def main():
     try:
         db_manager = DatabaseManager("sqlite:///data_quality.db")
         db_manager.create_tables()
-    except Exception as e:
+    except Exception:
         database_error = True
     
     render_header(db_manager, default_model)

@@ -139,6 +139,10 @@ streamlit run app.py
 
 The application will open in your browser at `http://localhost:8501`
 
+### Dashboard navigation
+
+The dashboard groups the workflow into **Overview**, **Quality details**, **AI assistant**, and **Dataset library** in the left navigation. Upload CSV, Excel, JSON, XML, TXT, or PDF files from the assessment panel, or load a sample dataset. The Overview summarizes quality scores and saved assessment history; detailed issue and metadata views, semantic retrieval and RAG recommendations, and saved dataset records are available in their corresponding sections. Database and language-model settings remain in the sidebar.
+
 ### Run Tests
 
 ```bash

@@ -6,8 +6,6 @@ RAG-Based Data Quality Assessment for Enterprise Data Lakes
 import streamlit as st
 import pandas as pd
 import numpy as np
-import hashlib
-import html
 from pathlib import Path
 import sys
 import os
@@ -47,297 +45,225 @@ from src.llm_client import LLMClient
 from src.database import DatabaseManager
 
 
-APP_STYLES = """
+import html
+import math
+
+
+THEME_CSS = """
 <style>
-    :root {
-        --ink: #202b32;
-        --muted: #68757c;
-        --canvas: #f3f5f2;
-        --panel: #ffffff;
-        --line: #e1e7e3;
-        --teal: #438f89;
-        --blue: #5797b7;
-        --plum: #9173a4;
-        --rose: #c66e78;
-    }
-    .stApp { background: var(--canvas); color: var(--ink); }
-    [data-testid="stSidebar"] { background: #e9ede9; border-right: 1px solid var(--line); }
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 { color: var(--ink); }
-    .block-container { max-width: 1500px; padding-top: 1.1rem; padding-bottom: 3rem; }
-    .topbar {
-        display: flex; align-items: center; justify-content: space-between;
-        background: #27343a; color: #f7f8f6; border-radius: 8px;
-        padding: 0.85rem 1.2rem; margin: 0 0 1.1rem;
-    }
-    .topbar-brand { font-size: 1.04rem; font-weight: 700; letter-spacing: .02em; }
-    .topbar-status { color: #d0dad6; font-size: .8rem; }
-    .page-title { color: var(--ink); font-size: 1.75rem; font-weight: 700; margin: 0; }
-    .page-subtitle { color: var(--muted); margin: .2rem 0 1rem; font-size: .92rem; }
-    .section-title {
-        color: var(--ink); font-size: 1.08rem; font-weight: 650;
-        margin: 1.1rem 0 .55rem;
-    }
-    [data-testid="stMetric"] {
-        background: var(--panel); border: 1px solid var(--line);
-        border-radius: 10px; padding: .8rem 1rem;
-    }
-    [data-testid="stMetricValue"] { color: var(--ink); }
-    .score-card { text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: .9rem .5rem; }
-    .score-ring {
-        width: 78px; height: 78px; border-radius: 50%; margin: 0 auto .55rem;
-        display: grid; place-items: center; position: relative;
-        background: conic-gradient(var(--ring-color) var(--score), #e7ece9 0);
-    }
-    .score-ring::before { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: var(--panel); }
-    .score-ring-value { z-index: 1; font-size: 1.12rem; font-weight: 700; color: var(--ink); }
-    .score-label { color: var(--muted); font-size: .79rem; }
-    [data-testid="stDataFrame"], [data-testid="stTable"] {
-        border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
-    }
-    .status-dot {
-        display: inline-block; width: 8px; height: 8px; border-radius: 50%;
-        margin-right: 8px; vertical-align: middle;
-    }
-    .status-green { background-color: #4b9b70; }
-    .status-red { background-color: #c75d63; }
-    .status-orange { background-color: #d89a47; }
-    .metric-card {
-        background-color: #f8faf8; border: 1px solid var(--line);
-        border-radius: 8px; padding: 1rem; text-align: center;
-    }
-    .pipeline-step {
-        background-color: #f0f4f2; border-left: 3px solid var(--teal);
-        padding: .75rem 1rem; margin: .25rem 0; border-radius: 4px;
-    }
-    .recommendation-item {
-        background-color: #edf5ef; border-left: 3px solid #4b9b70;
-        padding: .75rem 1rem; margin: .5rem 0; border-radius: 4px;
-    }
-    @media (max-width: 700px) {
-        .block-container { padding-left: 1rem; padding-right: 1rem; }
-        .topbar { align-items: flex-start; gap: .5rem; flex-direction: column; }
-    }
+:root{
+  --bg:#efede8; --panel:#f8f7f3; --card:#ffffff; --ink:#3d4147; --muted:#8e939a;
+  --line:#e0ddd5; --bar:#2f3032; --red:#e05a5a; --blue:#4a9fd8; --green:#5bb98b;
+  --purple:#8a5fbf; --amber:#e8a34a;
+}
+header[data-testid="stHeader"], #MainMenu, footer, [data-testid="stToolbar"],
+[data-testid="stDecoration"], [data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"], [data-testid="stSidebarHeader"]{display:none !important;}
+.stApp{background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+.block-container{padding:76px 2.2rem 2.5rem 2.2rem !important;max-width:1280px;}
+
+.topbar{position:fixed;top:0;left:0;right:0;height:56px;background:var(--bar);z-index:999991;
+  display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(0,0,0,.25);}
+.topbar .brand{width:230px;height:100%;display:flex;align-items:center;padding-left:22px;
+  color:#fff;font-size:19px;font-weight:300;background:#262628;border-right:1px solid #1d1d1f;box-sizing:border-box;}
+.topbar .brand b{font-weight:700;color:var(--red);margin-left:2px;}
+.topbar .right{display:flex;align-items:center;height:100%;}
+.topbar .pill{display:flex;align-items:center;height:100%;padding:0 18px;color:#c9ccd1;font-size:10.5px;
+  font-weight:600;letter-spacing:.09em;text-transform:uppercase;border-left:1px solid #3b3c3f;}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;}
+.dot.green,.status-green{background:#4caf7d;} .dot.red,.status-red{background:#e05a5a;}
+.dot.amber,.status-orange{background:#e8a34a;} .dot.grey{background:#8e939a;}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;}
+
+section[data-testid="stSidebar"]{top:56px;height:calc(100vh - 56px);background:var(--panel);
+  border-right:1px solid var(--line);width:230px !important;min-width:230px !important;}
+section[data-testid="stSidebar"] > div{padding-top:0 !important;}
+section[data-testid="stSidebar"] [data-testid="stVerticalBlock"]{gap:0;}
+section[data-testid="stSidebar"] div[role="radiogroup"]{gap:0;width:100%;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label{width:100%;margin:0;padding:16px 18px;
+  border-bottom:1px solid var(--line);border-left:4px solid var(--accent,#ccc);border-radius:0;cursor:pointer;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label > div:first-child{display:none;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label p{font-size:11px;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:#6b7078;margin:0;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:hover{background:#f0eee8;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:has(input:checked){background:var(--red);border-left-color:var(--red);}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:has(input:checked) p{color:#fff;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(1){--accent:#e05a5a;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(2){--accent:#4a9fd8;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(3){--accent:#5bb98b;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(4){--accent:#8a5fbf;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(5){--accent:#e8a34a;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(6){--accent:#4a9fd8;}
+section[data-testid="stSidebar"] div[role="radiogroup"] > label:nth-of-type(7){--accent:#8e939a;}
+
+.titlebar{display:flex;align-items:center;gap:12px;padding:0 0 14px 0;border-bottom:1px solid var(--line);margin-bottom:22px;}
+.titlebar .ic{font-size:18px;color:#7b8087;} .titlebar .tt{font-size:15px;color:var(--ink);}
+.titlebar .tag{margin-left:auto;font-size:10.5px;letter-spacing:.1em;color:#b9bcc1;text-transform:uppercase;}
+.sec-title{font-size:15px;color:var(--ink);margin:0 0 8px 0;}
+.cap{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+.bignum{display:flex;align-items:center;gap:16px;}
+.bignum .n{font-size:46px;font-weight:700;color:var(--red);line-height:1;}
+.ticks{display:flex;align-items:flex-end;flex-wrap:wrap;max-width:210px;}
+.ticks i{display:inline-block;width:4px;height:24px;margin:0 3px 3px 0;border-radius:1px;}
+.donutrow{display:flex;align-items:center;gap:18px;margin-top:18px;}
+.legend div{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7a7f86;margin:5px 0;}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;}
+
+.stat{text-align:center;} .stat .lbl{font-size:13px;color:#555a61;margin-bottom:10px;}
+.stat svg{display:block;margin:0 auto;}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:3px;margin-bottom:8px;}
+.panel .head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;
+  border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink);}
+.panel .head .btn{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);
+  padding:5px 9px;color:#777;background:#faf9f6;}
+.panel .body{padding:18px;min-height:96px;}
+.panel .body h4{margin:0 0 4px 0;font-size:17px;font-weight:600;color:var(--ink);}
+.panel .body p{margin:2px 0;font-size:12.5px;color:var(--muted);}
+.panel.accent-green{border-right:5px solid var(--green);}
+.panel.accent-blue{border-right:5px solid var(--blue);}
+
+.stButton>button{background:#faf9f6;border:1px solid var(--line);color:#6a6f76;border-radius:3px;
+  font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .9rem;}
+.stButton>button:hover{border-color:var(--red);color:var(--red);background:#fff;}
+.stButton>button[kind="primary"]{background:var(--red);border-color:var(--red);color:#fff;}
+
+.card{height:0;margin:0;}
+.metric-card{background:#f8f9fa;border:1px solid #dee2e6;border-radius:6px;padding:1rem;text-align:center;}
+.pipeline-step{background:#f0f4f8;border-left:3px solid var(--blue);padding:.6rem 1rem;margin:.25rem 0;border-radius:3px;font-size:13px;}
+.recommendation-item{background:#e8f5e9;border-left:3px solid var(--green);padding:.75rem 1rem;margin:.5rem 0;border-radius:3px;}
+.response-box{background:#f8f9fa;border:1px solid #dee2e6;border-radius:6px;padding:1.2rem;margin:1rem 0;}
 </style>
 """
 
+PAGES = [
+    ("Dashboard", "▦"),
+    ("Ingestion", "⇪"),
+    ("Issues", "⚠"),
+    ("Metadata", "☰"),
+    ("RAG Assistant", "✦"),
+    ("Database", "▤"),
+    ("Settings", "⚙"),
+]
+PAGE_ICON = dict(PAGES)
 
-def render_sidebar(db_manager, llm_model):
-    """Render navigation, service status, and application settings."""
-    
-    with st.sidebar:
-        st.markdown("### Data quality")
-        st.caption("WORKSPACE")
-        active_view = st.radio(
-            "Workspace navigation",
-            ["Overview", "Quality details", "AI assistant", "Dataset library"],
-            label_visibility="collapsed",
-            key="active_view",
+SEVERITY_ORDER = ["critical", "high", "medium", "low", "info"]
+SEVERITY_COLOR = {
+    "critical": "#e05a5a",
+    "high": "#e8a34a",
+    "medium": "#4a9fd8",
+    "low": "#5bb98b",
+    "info": "#8a5fbf",
+}
+
+
+def _h(markup):
+    return "".join(line.strip() for line in markup.splitlines())
+
+
+def severity_counts(quality_report):
+    counts = {s: 0 for s in SEVERITY_ORDER}
+    for issue in quality_report.issues:
+        key = str(issue.severity.value).lower()
+        counts[key] = counts.get(key, 0) + 1
+    return counts
+
+
+def chart_series(asset, quality_report):
+    if asset.is_tabular():
+        df = asset.tabular_data
+        missing = (df.isna().mean() * 100).round(1)
+        worst = missing.sort_values(ascending=False).head(8).index
+        cols = [c for c in df.columns if c in worst]
+        return "Missing Values by Column (%)", [str(c) for c in cols], [float(missing[c]) for c in cols]
+    counts = severity_counts(quality_report)
+    keys = [k for k in SEVERITY_ORDER]
+    return "Issues by Severity", [k.title() for k in keys], [counts.get(k, 0) for k in keys]
+
+
+def svg_area_chart(labels, values, color="#e05a5a", width=640, height=220):
+    if not values:
+        return '<p class="cap">No data to chart</p>'
+    pad_l, pad_r, pad_t, pad_b = 34, 14, 12, 30
+    plot_w, plot_h = width - pad_l - pad_r, height - pad_t - pad_b
+    top = max(10, int(math.ceil(max(values) / 10.0) * 10))
+    n = len(values)
+
+    def x(i):
+        return pad_l + (plot_w / 2 if n == 1 else i * plot_w / (n - 1))
+
+    def y(v):
+        return pad_t + plot_h - (v / top) * plot_h
+
+    grid = ""
+    for t in (0, top / 2, top):
+        gy = y(t)
+        grid += (
+            f'<line x1="{pad_l}" y1="{gy:.1f}" x2="{width - pad_r}" y2="{gy:.1f}" stroke="#e6e3dc" stroke-width="1"/>'
+            f'<text x="{pad_l - 8}" y="{gy + 3:.1f}" font-size="10" fill="#9a9fa6" text-anchor="end" font-family="Helvetica,Arial,sans-serif">{t:g}</text>'
         )
-        st.markdown("---")
-        st.markdown("#### System status")
-        
-        if db_manager:
-            st.markdown('<span class="status-dot status-green"></span>Database Connected', unsafe_allow_html=True)
-        else:
-            st.markdown('<span class="status-dot status-red"></span>Database Not Available', unsafe_allow_html=True)
-        
-        vs_status = st.session_state.get('vector_store_status', 'Ready')
-        vs_color = 'status-green' if vs_status == 'Ready' else 'status-orange' if vs_status == 'Not initialized' else 'status-red'
-        st.markdown(f'<span class="status-dot {vs_color}"></span>Vector Store: {vs_status}', unsafe_allow_html=True)
-        
-        model_display = llm_model.split('/')[-1] if '/' in llm_model else llm_model
-        st.markdown(f'<span class="status-dot status-orange"></span>LLM configured: {model_display}', unsafe_allow_html=True)
-        
-        with st.expander("Configuration", expanded=False):
-            st.markdown("#### Database")
-            db_connection_string = st.text_input(
-                "Connection String",
-                value="sqlite:///data_quality.db",
-                help="PostgreSQL: postgresql://user:password@host:port/database\nSQLite: sqlite:///database.db"
-            )
-            
-            st.markdown("#### LLM Model")
-            llm_model_input = st.text_input(
-                "Model Name",
-                value=llm_model,
-                help="Available models:\n- gemini-3.5-flash (Gemini API)\n- meta-llama/Meta-Llama-3-8B-Instruct (local)\n- Qwen/Qwen2.5-3B-Instruct (local)"
-            )
-        
-        with st.expander("Advanced Settings", expanded=False):
-            st.markdown("#### System Configuration")
-            st.info("Advanced configuration options for debugging and development.")
-        
-        return active_view, db_connection_string, llm_model_input
-
-
-def render_header(db_manager, llm_model):
-    """Render the dark application bar and page heading."""
-    
-    model_display = llm_model.split('/')[-1] if '/' in llm_model else llm_model
-    db_label = "Database connected" if db_manager else "Database unavailable"
-    st.markdown("""
-    <div class="topbar">
-        <span class="topbar-brand">DATA QUALITY • INSIGHTS</span>
-        <span class="topbar-status">""" + db_label + " &nbsp; · &nbsp; " + html.escape(model_display) + """</span>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown('<h1 class="page-title">Data Quality Dashboard</h1>', unsafe_allow_html=True)
-    st.markdown(
-        '<p class="page-subtitle">Assess, explore, and improve the quality of your enterprise data.</p>',
-        unsafe_allow_html=True,
+    pts = " ".join(f"{x(i):.1f},{y(v):.1f}" for i, v in enumerate(values))
+    area = f"{x(0):.1f},{y(0):.1f} {pts} {x(n - 1):.1f},{y(0):.1f}"
+    dots = "".join(
+        f'<circle cx="{x(i):.1f}" cy="{y(v):.1f}" r="3.5" fill="#fff" stroke="{color}" stroke-width="2"/>'
+        for i, v in enumerate(values)
+    )
+    xl = "".join(
+        f'<text x="{x(i):.1f}" y="{height - 10}" font-size="10" fill="#9a9fa6" text-anchor="middle" font-family="Helvetica,Arial,sans-serif">{html.escape(lab[:9] + ("…" if len(lab) > 9 else ""))}</text>'
+        for i, lab in enumerate(labels)
+    )
+    return (
+        f'<svg viewBox="0 0 {width} {height}" width="100%" xmlns="http://www.w3.org/2000/svg">'
+        f'{grid}<polygon points="{area}" fill="{color}" fill-opacity="0.10"/>'
+        f'<polyline points="{pts}" fill="none" stroke="{color}" stroke-width="2"/>{dots}{xl}</svg>'
     )
 
 
-def render_section_header(number, title):
-    """Render section header"""
-    st.markdown(f'<div class="section-title">{number:02d} — {title}</div>', unsafe_allow_html=True)
+def svg_donut(parts, size=118, thickness=15):
+    r = (size - thickness) / 2
+    c = 2 * math.pi * r
+    cx = cy = size / 2
+    total = sum(v for _, v, _ in parts)
+    out = f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#e6e3dc" stroke-width="{thickness}"/>'
+    offset = 0.0
+    if total > 0:
+        for _, v, col in parts:
+            if v <= 0:
+                continue
+            seg = c * v / total
+            out += (
+                f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{col}" stroke-width="{thickness}" '
+                f'stroke-dasharray="{seg:.2f} {c - seg:.2f}" stroke-dashoffset="{-offset:.2f}" '
+                f'transform="rotate(-90 {cx} {cy})"/>'
+            )
+            offset += seg
+    return f'<svg viewBox="0 0 {size} {size}" width="{size}" height="{size}" xmlns="http://www.w3.org/2000/svg">{out}</svg>'
 
 
-def render_score_ring(label, score, applicable=True, color="#5797b7"):
-    """Render a compact circular quality score indicator."""
-    score_value = max(0.0, min(100.0, float(score))) if applicable else 0.0
-    display_value = f"{score_value:.0f}" if applicable else "N/A"
-    st.markdown(
-        f"""
-        <div class="score-card">
-            <div class="score-ring" role="img" aria-label="{html.escape(label)}: {display_value} out of 100"
-                 style="--score: {score_value:.1f}%; --ring-color: {color}">
-                <span class="score-ring-value">{display_value}</span>
-            </div>
-            <div class="score-label">{html.escape(label)}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+def svg_ring(value, color, size=116, stroke=5, applicable=True):
+    r = (size - stroke) / 2
+    c = 2 * math.pi * r
+    cx = cy = size / 2
+    if not applicable:
+        color, label, pct = "#c9ccd1", "N/A", 0.0
+        fs = 22
+    else:
+        pct = max(0.0, min(1.0, float(value) / 100.0))
+        label, fs = f"{float(value):.0f}", 36
+    arc = c * pct
+    return (
+        f'<svg viewBox="0 0 {size} {size}" width="{size}" height="{size}" xmlns="http://www.w3.org/2000/svg">'
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#e6e3dc" stroke-width="{stroke}"/>'
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" stroke-width="{stroke}" stroke-linecap="round" '
+        f'stroke-dasharray="{arc:.2f} {c - arc:.2f}" transform="rotate(-90 {cx} {cy})"/>'
+        f'<text x="{cx}" y="{cy + fs * 0.34:.1f}" font-size="{fs}" font-weight="300" fill="{color}" '
+        f'text-anchor="middle" font-family="Helvetica,Arial,sans-serif">{label}</text></svg>'
     )
 
 
-def render_dashboard_overview(normalized_asset, quality_report, db_manager, is_tabular):
-    """Show current quality indicators and persisted assessment history."""
-    file_name = Path(normalized_asset.metadata.get('file_name', 'Dataset')).name
-    file_size_mb = normalized_asset.metadata.get('file_size', 0) / (1024 * 1024)
-    issue_count = len(quality_report.issues)
-
-    st.markdown(f"### Latest assessment · {html.escape(file_name)}")
-    st.caption(f"{normalized_asset.source_format} · {normalized_asset.data_category} · {file_size_mb:.2f} MB")
-
-    metric_columns = st.columns(4)
-    metrics = [
-        ("Overall quality", quality_report.quality_score, True, "#c66e78"),
-        ("Completeness", quality_report.completeness_score, is_tabular, "#5797b7"),
-        ("Consistency", quality_report.consistency_score, is_tabular, "#438f89"),
-        ("Validity", quality_report.validity_score, is_tabular, "#9173a4"),
-    ]
-    for column, (label, score, applicable, color) in zip(metric_columns, metrics):
-        with column:
-            render_score_ring(label, score, applicable, color)
-
-    chart_column, severity_column = st.columns([1.8, 1])
-    with chart_column, st.container(border=True):
-        st.markdown("#### Quality score history")
-        saved_datasets = db_manager.list_datasets() if db_manager else []
-        if saved_datasets:
-            history = pd.DataFrame(saved_datasets)
-            history["created_at"] = pd.to_datetime(history["created_at"], errors="coerce")
-            history = history.dropna(subset=["created_at", "quality_score"]).sort_values("created_at")
-            if not history.empty:
-                history = history.tail(12).set_index("created_at")[["quality_score"]]
-                st.line_chart(history, y="quality_score", color="#5797b7", height=220)
-                st.caption("Latest saved assessments · save this dataset to add it to the history.")
-            else:
-                st.info("Saved assessment history is not available.")
-        elif is_tabular:
-            scores = pd.DataFrame({
-                "Quality dimension": ["Completeness", "Consistency", "Validity"],
-                "Score": [
-                    quality_report.completeness_score,
-                    quality_report.consistency_score,
-                    quality_report.validity_score,
-                ],
-            }).set_index("Quality dimension")
-            st.bar_chart(scores, y="Score", color="#5797b7", height=220)
-            st.caption("Current dataset scores · save assessments to build a history.")
-        else:
-            st.info("Save an assessment to build a quality score history.")
-
-    with severity_column, st.container(border=True):
-        st.markdown(f"#### Issue profile · {issue_count} detected")
-        severity_data = {
-            str(severity).replace("_", " ").title(): int(count)
-            for severity, count in quality_report.issues_by_severity.items()
-            if count
-        }
-        if severity_data:
-            st.bar_chart(pd.Series(severity_data, name="Issues"), color="#c66e78", height=180)
-        else:
-            st.success("No issues detected")
-        if is_tabular:
-            st.caption(
-                f"{len(normalized_asset.tabular_data):,} rows · "
-                f"{len(normalized_asset.tabular_data.columns):,} columns"
-            )
-        else:
-            st.caption(f"{len(normalized_asset.text_data):,} characters")
-
-    overview_column, library_column = st.columns([1, 1.4])
-    with overview_column, st.container(border=True):
-        st.markdown("#### Dataset snapshot")
-        st.write(f"**Format:** {normalized_asset.source_format}")
-        st.write(f"**Category:** {normalized_asset.data_category}")
-        if is_tabular:
-            st.write(f"**Dimensions:** {len(normalized_asset.tabular_data):,} rows × {len(normalized_asset.tabular_data.columns):,} columns")
-        st.write(f"**Assessment:** {quality_report.overall_assessment}")
-        render_database_actions(
-            db_manager,
-            st.session_state.metadata,
-            quality_report,
-        )
-
-    with library_column, st.container(border=True):
-        st.markdown("#### Recent datasets")
-        recent_datasets = db_manager.list_datasets()[:5] if db_manager else []
-        if recent_datasets:
-            recent_frame = pd.DataFrame(recent_datasets)
-            recent_frame["Dataset"] = recent_frame["source_file"].map(lambda value: Path(value).name)
-            recent_frame["Quality"] = recent_frame["quality_score"].map(lambda value: f"{value:.0f}/100")
-            st.dataframe(
-                recent_frame[["Dataset", "source_format", "Quality", "created_at"]],
-                use_container_width=True,
-                hide_index=True,
-                column_config={"source_format": "Format", "created_at": "Assessed"},
-            )
-        else:
-            st.caption("Saved assessments will appear here.")
-
-
-def render_dataset_library(db_manager):
-    """List assessments persisted by the database manager."""
-    st.markdown("### Dataset library")
-    st.caption("Previously saved quality assessments and their latest scores.")
-    if not db_manager:
-        st.warning("The database is unavailable, so saved datasets cannot be listed.")
-        return
-
-    datasets = db_manager.list_datasets()
-    if not datasets:
-        st.info("No saved assessments yet. Assess a dataset and save it from the Overview.")
-        return
-
-    frame = pd.DataFrame(datasets)
-    frame["Dataset"] = frame["source_file"].map(lambda value: Path(value).name)
-    frame["Quality score"] = frame["quality_score"].map(lambda value: f"{value:.0f}/100")
-    frame["Assessed"] = pd.to_datetime(frame["created_at"], errors="coerce").dt.strftime("%Y-%m-%d %H:%M")
-    st.dataframe(
-        frame[["Dataset", "source_format", "data_category", "rows", "columns", "Quality score", "Assessed"]],
-        use_container_width=True,
-        hide_index=True,
-        column_config={
-            "source_format": "Format",
-            "data_category": "Category",
-            "rows": "Rows",
-            "columns": "Columns",
-        },
-    )
-
+def score_color(score):
+    return "#5bb98b" if score >= 80 else "#e8a34a" if score >= 60 else "#e05a5a"
 
 def render_dataset_overview(normalized_asset):
     """Render compact dataset overview card"""
@@ -893,285 +819,368 @@ def render_database_actions(db_manager, metadata, quality_report):
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-def process_data_workflow(normalized_asset, quality_report, db_manager, llm_model, active_view="Overview"):
-    """Render the selected dashboard view for the current dataset."""
+def go(page):
+    st.session_state.goto = page
 
-    metadata_gen = MetadataGenerator()
-    metadata = metadata_gen.generate_metadata(normalized_asset, quality_report)
-    textual_metadata = metadata_gen.generate_textual_metadata(metadata)
-    is_tabular = normalized_asset.is_tabular()
 
-    # Store metadata in session state
-    st.session_state.metadata = metadata
+def persist(widget_key, store_key):
+    st.session_state[store_key] = st.session_state[widget_key]
 
-    # Debug: Track workflow state
-    if DEBUG_MODE:
-        st.caption(f"Debug: Processing workflow, is_tabular={is_tabular}")
 
-    llm_client = None
-    if active_view == "Overview":
-        render_dashboard_overview(normalized_asset, quality_report, db_manager, is_tabular)
-        return
+@st.cache_resource(show_spinner=False)
+def get_db_manager(url):
+    try:
+        db = DatabaseManager(url)
+        db.create_tables()
+        return db
+    except Exception:
+        return None
 
-    if active_view == "Quality details":
-        render_section_header(1, "Dataset overview")
-        render_dataset_overview(normalized_asset)
-        render_section_header(2, "Quality assessment")
-        render_quality_scores(quality_report, is_tabular)
-        render_section_header(3, "Detected issues")
-        render_issues_table(quality_report)
-        render_section_header(4, "Metadata")
-        render_metadata_grouped(metadata, quality_report, is_tabular)
-        return
 
-    if active_view != "AI assistant":
-        return
+@st.cache_resource(show_spinner=False)
+def get_embedder():
+    return EmbeddingGenerator()
 
-    provider = os.getenv("LLM_PROVIDER", "local").lower()
+
+@st.cache_resource(show_spinner=False)
+def get_llm_client(provider, model_name):
     try:
         if provider == "gemini":
-            llm_client = LLMClient(device="cpu")
+            return LLMClient(device="cpu")
+        return LLMClient(model_name=model_name, device="cpu")
+    except Exception:
+        return None
+
+
+def init_state(default_model):
+    defaults = {
+        "nav": "Dashboard",
+        "normalized_asset": None,
+        "quality_report": None,
+        "metadata": None,
+        "vector_store": None,
+        "embed_gen": None,
+        "rag_response": None,
+        "rag_saved": False,
+        "vector_store_status": "Idle",
+        "vector_error": None,
+        "file_sig": None,
+        "db_url": "sqlite:///data_quality.db",
+        "llm_model": default_model,
+    }
+    for key, value in defaults.items():
+        st.session_state.setdefault(key, value)
+
+
+def prepare_retrieval(normalized_asset, quality_report):
+    generator = MetadataGenerator()
+    metadata = generator.generate_metadata(normalized_asset, quality_report)
+    textual = generator.generate_textual_metadata(metadata)
+    st.session_state.metadata = metadata
+    st.session_state.vector_error = None
+    try:
+        embed_gen = get_embedder()
+        embedding = embed_gen.generate_embedding(textual)
+        store = VectorStore(dimension=embed_gen.get_embedding_dimension(), index_type="flat")
+        store.add_embeddings([embedding], [{
+            "source_file": metadata.source_file,
+            "format": metadata.source_format,
+            "quality_score": metadata.quality_score,
+            "metadata": textual,
+        }])
+        st.session_state.vector_store = store
+        st.session_state.embed_gen = embed_gen
+        st.session_state.vector_store_status = "Ready"
+    except Exception as exc:
+        st.session_state.vector_store = None
+        st.session_state.embed_gen = None
+        st.session_state.vector_store_status = "Failed"
+        st.session_state.vector_error = str(exc)
+
+
+def ingest(path):
+    asset = LoaderFactory.load_file(str(path))
+    normalized_asset = DataNormalizer.normalize(asset)
+    quality_report = QualityMetrics().assess_quality(normalized_asset)
+    st.session_state.normalized_asset = normalized_asset
+    st.session_state.quality_report = quality_report
+    st.session_state.rag_response = None
+    st.session_state.rag_saved = False
+    prepare_retrieval(normalized_asset, quality_report)
+
+
+def render_topbar(db_ok, llm_label, llm_ok):
+    status = st.session_state.vector_store_status
+    vs_dot = {"Ready": "green", "Failed": "red"}.get(status, "grey")
+    st.markdown(_h(f"""
+        <div class="topbar">
+          <div class="brand">DataQuality<b>RAG</b></div>
+          <div class="right">
+            <div class="pill"><span class="dot {'green' if db_ok else 'red'}"></span>Database</div>
+            <div class="pill"><span class="dot {vs_dot}"></span>FAISS {html.escape(status)}</div>
+            <div class="pill"><span class="dot {'green' if llm_ok else 'amber'}"></span>{html.escape(llm_label)}</div>
+          </div>
+        </div>
+    """), unsafe_allow_html=True)
+
+
+def render_titlebar(title_html, icon, tag):
+    st.markdown(_h(f"""
+        <div class="titlebar"><span class="ic">{icon}</span>
+        <span class="tt">{title_html}</span><span class="tag">{tag}</span></div>
+    """), unsafe_allow_html=True)
+
+
+def require_data():
+    if st.session_state.normalized_asset is None:
+        render_titlebar("No dataset loaded", PAGE_ICON["Ingestion"], "EMPTY")
+        st.markdown(_h("""
+            <div class="panel"><div class="body"><h4>Nothing to show yet</h4>
+            <p>Upload a file or load a sample to generate a quality report.</p></div></div>
+        """), unsafe_allow_html=True)
+        st.button("Go to Ingestion", type="primary", on_click=go, args=("Ingestion",), key="empty_go")
+        return False
+    return True
+
+
+def page_dashboard():
+    if not require_data():
+        return
+    asset = st.session_state.normalized_asset
+    report = st.session_state.quality_report
+    is_tabular = asset.is_tabular()
+    file_name = Path(asset.metadata.get("file_name", "Unknown")).name
+    render_titlebar(f"Quality Report for <b>{html.escape(file_name)}</b>", PAGE_ICON["Dashboard"], "DASHBOARD")
+
+    chart_title, labels, values = chart_series(asset, report)
+    counts = severity_counts(report)
+    total_issues = len(report.issues)
+    tick_colors = [SEVERITY_COLOR.get(sev, "#8e939a") for sev in SEVERITY_ORDER for _ in range(counts.get(sev, 0))][:24]
+    ticks = "".join(f'<i style="background:{c}"></i>' for c in tick_colors)
+    parts = [(s, counts.get(s, 0), SEVERITY_COLOR[s]) for s in SEVERITY_ORDER]
+    legend = "".join(
+        f'<div><i style="background:{col}"></i>{name} · {val}</div>' for name, val, col in parts
+    )
+
+    left, right = st.columns([3, 2], gap="large")
+    with left:
+        st.markdown(_h(f'<div class="sec-title">{html.escape(chart_title)}</div>') + svg_area_chart(labels, values), unsafe_allow_html=True)
+    with right:
+        st.markdown(_h(f"""
+            <div class="bignum"><div class="n">{total_issues}</div><div class="ticks">{ticks}</div></div>
+            <div class="cap">Detected issues</div>
+            <div class="donutrow">{svg_donut(parts)}<div class="legend">{legend}</div></div>
+        """), unsafe_allow_html=True)
+
+    st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
+    rings = [
+        ("Overall Score", report.quality_score, score_color(report.quality_score), True),
+        ("Completeness", report.completeness_score, "#4a9fd8", is_tabular),
+        ("Consistency", report.consistency_score, "#5bb98b", is_tabular),
+        ("Validity", report.validity_score, "#8a5fbf", is_tabular),
+    ]
+    for col, (label, value, color, applicable) in zip(st.columns(4), rings):
+        with col:
+            st.markdown(_h(f'<div class="stat"><div class="lbl">{label}</div>') + svg_ring(value, color, applicable=applicable) + "</div>", unsafe_allow_html=True)
+
+    st.markdown("<div style='height:22px'></div>", unsafe_allow_html=True)
+    c1, c2 = st.columns(2, gap="medium")
+    size_mb = asset.metadata.get("file_size", 0) / (1024 * 1024)
+    shape = (
+        f"{len(asset.tabular_data)} rows × {len(asset.tabular_data.columns)} columns"
+        if is_tabular else f"{len(asset.text_data.split())} words"
+    )
+    with c1:
+        st.markdown(_h(f"""
+            <div class="panel accent-green"><div class="head"><span>Dataset</span><span class="btn">{html.escape(str(asset.source_format))}</span></div>
+            <div class="body"><h4>{html.escape(file_name)}</h4>
+            <p>{html.escape(str(asset.data_category))} · {shape} · {size_mb:.2f} MB</p>
+            <p>{html.escape(str(report.overall_assessment))}</p></div></div>
+        """), unsafe_allow_html=True)
+        st.button("View metadata", on_click=go, args=("Metadata",), key="dash_meta")
+    with c2:
+        response = st.session_state.rag_response
+        if response is not None:
+            snippet = html.escape(response.explanation[:230] + ("…" if len(response.explanation) > 230 else ""))
+            source = "LLM" if response.used_llm else "Rule-based"
+            body = f"<h4>{html.escape(response.query)}</h4><p>{snippet}</p><p>Source: {source}</p>"
         else:
-            llm_client = LLMClient(model_name=llm_model, device="cpu")
-    except Exception as e:
-        st.error(f"Unable to initialize the configured language model: {e}")
+            body = "<h4>No analysis yet</h4><p>Ask the assistant why the issues were flagged and how to fix them.</p>"
+        st.markdown(_h(f"""
+            <div class="panel accent-blue"><div class="head"><span>Latest RAG Analysis</span><span class="btn">Assistant</span></div>
+            <div class="body">{body}</div></div>
+        """), unsafe_allow_html=True)
+        st.button("Open assistant", on_click=go, args=("RAG Assistant",), key="dash_rag")
 
-    # Check if vector store already exists in session state
-    if st.session_state.vector_store is None or st.session_state.embed_gen is None:
-        vector_store = None
-        embed_gen = None
-        
-        if DEBUG_MODE:
-                st.caption("Debug: Creating new vector store...")
-        
-        try:
-            embed_gen = EmbeddingGenerator()
-            embedding = embed_gen.generate_embedding(textual_metadata)
-            
-            if DEBUG_MODE:
-                        st.caption(f"Debug: Embedding generated, shape={embedding.shape}, dtype={embedding.dtype}")
-            if DEBUG_MODE:
-                        st.caption(f"Debug: Embedding min={embedding.min():.4f}, max={embedding.max():.4f}")
-            if DEBUG_MODE:
-                        st.caption(f"Debug: Embedding finite: {np.all(np.isfinite(embedding))}")
-            
-            dimension = embed_gen.get_embedding_dimension()
-            vector_store = VectorStore(dimension=dimension, index_type="flat")
-            
-            document = {
-                "source_file": metadata.source_file,
-                "format": metadata.source_format,
-                "quality_score": metadata.quality_score,
-                "metadata": textual_metadata
-            }
-            
-            vector_store.add_embeddings([embedding], [document])
-            
-            if DEBUG_MODE:
-                        st.caption(f"Debug: Document added to vector store")
-            if DEBUG_MODE:
-                        st.caption(f"Debug: FAISS index.ntotal={vector_store.index.ntotal}")
-            if DEBUG_MODE:
-                        st.caption(f"Debug: Document metadata count={len(vector_store.documents)}")
-            
-            # Store in session state
-            st.session_state.vector_store = vector_store
-            st.session_state.embed_gen = embed_gen
-            st.session_state.vector_store_status = "Ready"
-            
-            render_semantic_retrieval(embed_gen, vector_store)
-            
-        except Exception as e:
-            st.error(f"Error in embedding/vector store: {str(e)}")
-            st.session_state.vector_store_status = "Failed"
-            st.info("Make sure sentence-transformers and faiss-cpu are installed")
-            import traceback
-            st.error(traceback.format_exc())
-    else:
-        # Use cached vector store
-        vector_store = st.session_state.vector_store
-        embed_gen = st.session_state.embed_gen
-        if DEBUG_MODE:
-                st.caption("Debug: Using cached vector store")
-        if DEBUG_MODE:
-                st.caption(f"Debug: FAISS index.ntotal={vector_store.index.ntotal}")
-        if DEBUG_MODE:
-                st.caption(f"Debug: Document metadata count={len(vector_store.documents)}")
-        render_semantic_retrieval(embed_gen, vector_store)
-    
-    render_section_header(5, "AI quality assistant")
 
-    if vector_store and embed_gen:
-        render_rag_pipeline_visualization(llm_client)
-        render_rag_assistant(vector_store, embed_gen, metadata, db_manager, llm_model, is_tabular)
-    else:
+def page_ingestion():
+    render_titlebar("Data Ingestion", PAGE_ICON["Ingestion"], "INGESTION")
+    with st.container(border=True):
+        uploaded = st.file_uploader(
+            "Upload dataset",
+            type=["csv", "xlsx", "xls", "json", "xml", "txt", "pdf"],
+            help="Supported formats: CSV, Excel, JSON, XML, TXT, PDF",
+        )
+        if uploaded is not None:
+            signature = (uploaded.name, uploaded.size)
+            if st.session_state.file_sig != signature:
+                try:
+                    path = Path("data/input") / uploaded.name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(uploaded.getbuffer())
+                    with st.spinner("Analysing dataset..."):
+                        ingest(path)
+                    st.session_state.file_sig = signature
+                    st.session_state.goto = "Dashboard"
+                    st.rerun()
+                except Exception as exc:
+                    st.error(f"Error processing file: {exc}")
+    with st.expander("Demo / Sample Data", expanded=st.session_state.normalized_asset is None):
+        samples = {
+            "CSV": "data/sample/sample_dataset.csv",
+            "Excel": "data/sample/sample_dataset.xlsx",
+            "JSON": "data/sample/sample_dataset.json",
+            "XML": "data/sample/sample_dataset.xml",
+            "TXT": "data/sample/sample_document.txt",
+            "PDF": "data/sample/sample_document.pdf",
+        }
+        for fmt, file_path in samples.items():
+            if st.button(f"Load Sample {fmt}", key=f"sample_{fmt}"):
+                if not Path(file_path).exists():
+                    st.error(f"Sample file not found: {file_path}")
+                else:
+                    try:
+                        ingest(file_path)
+                        st.session_state.file_sig = None
+                        st.session_state.goto = "Dashboard"
+                        st.rerun()
+                    except Exception as exc:
+                        st.error(f"Error loading sample: {exc}")
+    if st.session_state.normalized_asset is not None:
+        render_dataset_overview(st.session_state.normalized_asset)
+
+
+def page_issues():
+    if not require_data():
+        return
+    render_titlebar("Detected Issues", PAGE_ICON["Issues"], "ISSUES")
+    with st.container(border=True):
+        render_issues_table(st.session_state.quality_report)
+
+
+def page_metadata():
+    if not require_data():
+        return
+    render_titlebar("Dataset Metadata", PAGE_ICON["Metadata"], "METADATA")
+    with st.container(border=True):
+        render_metadata_grouped(
+            st.session_state.metadata,
+            st.session_state.quality_report,
+            st.session_state.normalized_asset.is_tabular(),
+        )
+
+
+def page_assistant(db_manager):
+    if not require_data():
+        return
+    render_titlebar("RAG Assistant", PAGE_ICON["RAG Assistant"], "ASSISTANT")
+    store, embed_gen = st.session_state.vector_store, st.session_state.embed_gen
+    if not store or not embed_gen:
         st.warning("RAG not available - vector store initialization failed")
+        if st.session_state.vector_error:
+            st.caption(st.session_state.vector_error)
+        return
+    provider = os.getenv("LLM_PROVIDER", "local").lower()
+    llm_model = st.session_state.llm_model
+    left, right = st.columns([2, 3], gap="large")
+    with left:
+        with st.container(border=True):
+            render_rag_pipeline_visualization(get_llm_client(provider, llm_model))
+        with st.container(border=True):
+            render_semantic_retrieval(embed_gen, store)
+    with right:
+        with st.container(border=True):
+            render_rag_assistant(
+                store, embed_gen, st.session_state.metadata, db_manager, llm_model,
+                st.session_state.normalized_asset.is_tabular(),
+            )
+
+
+def page_database(db_manager):
+    render_titlebar("Database", PAGE_ICON["Database"], "DATABASE")
+    if not db_manager:
+        st.error("Database not available. Check the connection string in Settings.")
+        return
+    st.caption(f"Connected: {st.session_state.db_url}")
+    if not require_data():
+        return
+    with st.container(border=True):
+        render_database_actions(db_manager, st.session_state.metadata, st.session_state.quality_report)
+
+
+def page_settings():
+    render_titlebar("Settings", PAGE_ICON["Settings"], "SETTINGS")
+    with st.container(border=True):
+        st.markdown("##### Database")
+        st.text_input(
+            "Connection string", value=st.session_state.db_url, key="w_db_url",
+            on_change=persist, args=("w_db_url", "db_url"),
+            help="PostgreSQL: postgresql://user:password@host:port/database\nSQLite: sqlite:///database.db",
+        )
+        st.markdown("##### LLM")
+        st.text_input(
+            "Model name", value=st.session_state.llm_model, key="w_llm_model",
+            on_change=persist, args=("w_llm_model", "llm_model"),
+            help="gemini-3.5-flash (Gemini API), meta-llama/Meta-Llama-3-8B-Instruct or Qwen/Qwen2.5-3B-Instruct (local)",
+        )
+    with st.expander("Advanced", expanded=False):
+        st.write(f"Provider: {os.getenv('LLM_PROVIDER', 'local')}")
+        st.write(f"Debug mode: {DEBUG_MODE}")
 
 
 def main():
-    """Main Streamlit application"""
-    
     st.set_page_config(
         page_title="RAG Data Quality Assessment",
         page_icon="📊",
         layout="wide",
-        initial_sidebar_state="expanded"
+        initial_sidebar_state="expanded",
     )
-    st.markdown(APP_STYLES, unsafe_allow_html=True)
-    
-    # Initialize session state
-    if 'vector_store_status' not in st.session_state:
-        st.session_state.vector_store_status = "Not initialized"
-    if 'normalized_asset' not in st.session_state:
-        st.session_state.normalized_asset = None
-    if 'quality_report' not in st.session_state:
-        st.session_state.quality_report = None
-    if 'metadata' not in st.session_state:
-        st.session_state.metadata = None
-    if 'vector_store' not in st.session_state:
-        st.session_state.vector_store = None
-    if 'embed_gen' not in st.session_state:
-        st.session_state.embed_gen = None
-    if 'rag_response' not in st.session_state:
-        st.session_state.rag_response = None
-    if 'llm_model' not in st.session_state:
-        st.session_state.llm_model = None
-    if 'upload_signature' not in st.session_state:
-        st.session_state.upload_signature = None
-    if 'processed_upload_signature' not in st.session_state:
-        st.session_state.processed_upload_signature = None
-    
-    # Get configured model from environment
+    st.markdown(THEME_CSS, unsafe_allow_html=True)
+
     provider = os.getenv("LLM_PROVIDER", "local").lower()
     if provider == "gemini":
         default_model = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
     else:
         default_model = os.getenv("LLM_MODEL", "meta-llama/Meta-Llama-3-8B-Instruct")
-    
-    # Initialize database
-    db_manager = None
-    database_error = False
-    try:
-        db_manager = DatabaseManager("sqlite:///data_quality.db")
-        db_manager.create_tables()
-    except Exception:
-        database_error = True
-    
-    render_header(db_manager, default_model)
-    active_view, db_connection_string, llm_model = render_sidebar(db_manager, default_model)
-    st.session_state.llm_model = llm_model
-    if database_error:
-        st.warning("Database initialization failed. Saved dataset and query history may be unavailable.")
-    
-    with st.container(border=True):
-        upload_column, format_column = st.columns([1.5, 1])
-        with upload_column:
-            st.markdown("#### Assess a dataset")
-            uploaded_file = st.file_uploader(
-                "Upload a dataset",
-                type=['csv', 'xlsx', 'xls', 'json', 'xml', 'txt', 'pdf'],
-                help="Supported formats: CSV, Excel, JSON, XML, TXT, PDF",
-                label_visibility="collapsed",
-            )
-        with format_column:
-            st.markdown("#### Supported formats")
-            st.caption("CSV · Excel · JSON · XML · TXT · PDF")
+    init_state(default_model)
 
-    process_current_dataset = False
-    if uploaded_file is not None:
-        upload_bytes = uploaded_file.getvalue()
-        upload_signature = hashlib.sha256(upload_bytes).hexdigest()
-        st.session_state.upload_signature = upload_signature
-        try:
-            if upload_signature != st.session_state.processed_upload_signature:
-                temp_path = Path("data/input") / Path(uploaded_file.name).name
-                temp_path.parent.mkdir(parents=True, exist_ok=True)
-                temp_path.write_bytes(upload_bytes)
+    db_manager = get_db_manager(st.session_state.db_url)
+    model = st.session_state.llm_model
+    llm_ok = provider == "gemini" and bool(os.getenv("GEMINI_API_KEY"))
+    render_topbar(db_manager is not None, model.split("/")[-1], llm_ok)
 
-                asset = LoaderFactory.load_file(str(temp_path))
-                normalized_asset = DataNormalizer.normalize(asset)
-                quality_report = QualityMetrics().assess_quality(normalized_asset)
+    if st.session_state.get("goto"):
+        st.session_state.nav = st.session_state.pop("goto")
+    with st.sidebar:
+        page = st.radio(
+            "Navigation", [name for name, _ in PAGES], key="nav",
+            format_func=lambda n: f"{PAGE_ICON[n]}   {n}", label_visibility="collapsed",
+        )
 
-                st.session_state.normalized_asset = normalized_asset
-                st.session_state.quality_report = quality_report
-                st.session_state.rag_response = None
-                st.session_state.rag_saved = False
-                st.session_state.vector_store = None
-                st.session_state.embed_gen = None
-                st.session_state.vector_store_status = "Not initialized"
-                st.session_state.processed_upload_signature = upload_signature
-            process_current_dataset = st.session_state.normalized_asset is not None
-        except Exception as e:
-            st.error(f"Error processing file: {str(e)}")
-
-    if process_current_dataset or st.session_state.normalized_asset is not None:
-        if active_view == "Dataset library":
-            render_dataset_library(db_manager)
-        else:
-            try:
-                process_data_workflow(
-                    st.session_state.normalized_asset,
-                    st.session_state.quality_report,
-                    db_manager,
-                    llm_model,
-                    active_view,
-                )
-            except Exception as e:
-                st.error(f"Error displaying the selected view: {e}")
+    if page == "Dashboard":
+        page_dashboard()
+    elif page == "Ingestion":
+        page_ingestion()
+    elif page == "Issues":
+        page_issues()
+    elif page == "Metadata":
+        page_metadata()
+    elif page == "RAG Assistant":
+        page_assistant(db_manager)
+    elif page == "Database":
+        page_database(db_manager)
     else:
-        if active_view == "Dataset library":
-            render_dataset_library(db_manager)
-        else:
-            st.info("Upload a dataset above or choose one of the samples to start an assessment.")
-
-        sample_loaded = False
-        with st.expander("Demo / Sample Data", expanded=False):
-            st.markdown("#### Sample Datasets")
-            sample_files = {
-                'CSV': 'data/sample/sample_dataset.csv',
-                'Excel': 'data/sample/sample_dataset.xlsx',
-                'JSON': 'data/sample/sample_dataset.json',
-                'XML': 'data/sample/sample_dataset.xml',
-                'TXT': 'data/sample/sample_document.txt',
-                'PDF': 'data/sample/sample_document.pdf'
-            }
-            sample_columns = st.columns(3)
-            for index, (format_name, file_path) in enumerate(sample_files.items()):
-                with sample_columns[index % len(sample_columns)]:
-                    if st.button(f"Load {format_name} sample", key=f"load_sample_{format_name}"):
-                        path = Path(file_path)
-                        if path.exists():
-                            try:
-                                asset = LoaderFactory.load_file(str(path))
-                                normalized_asset = DataNormalizer.normalize(asset)
-                                quality_report = QualityMetrics().assess_quality(normalized_asset)
-
-                                st.session_state.normalized_asset = normalized_asset
-                                st.session_state.quality_report = quality_report
-                                st.session_state.rag_response = None
-                                st.session_state.rag_saved = False
-                                st.session_state.vector_store = None
-                                st.session_state.embed_gen = None
-                                st.session_state.vector_store_status = "Not initialized"
-                                st.session_state.upload_signature = None
-                                st.session_state.processed_upload_signature = None
-                                sample_loaded = True
-                            except Exception as e:
-                                st.error(f"Error loading sample: {str(e)}")
-                        else:
-                            st.error(f"Sample file not found: {file_path}")
-
-        if sample_loaded:
-            try:
-                process_data_workflow(
-                    st.session_state.normalized_asset,
-                    st.session_state.quality_report,
-                    db_manager,
-                    llm_model,
-                    active_view,
-                )
-            except Exception as e:
-                st.error(f"Error displaying the selected view: {e}")
+        page_settings()
 
 
 if __name__ == "__main__":
